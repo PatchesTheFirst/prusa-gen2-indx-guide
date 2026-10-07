@@ -25,6 +25,8 @@ NOTES = {
     1099715: "Gen 2 path (from comments; the official docs don't say this): you already placed the new <b>10 mm</b> heatbed spacer in {s:1110975}. Don't use the old 8 mm spacer listed here.",
     # INDX 3.25 Securing the heatbed
     1099926: "Gen 2 path: only two turns, as the step says. The heatbed screws get their final tightening with the aligner in {s:1110993..1111043}, later in this document.",
+    # Gen 2 3.9 Installing the new pulley (right motor)
+    1113142: "From comments: many people found the new pulleys very hard to push onto the motor shaft, here and on the left motor ({s:1113272}). Before you force one, loosen or remove both set screws, and file off any burr the old set screw left on the shaft. Some still needed pliers or a clamp. At least one commenter got a pulley stuck halfway and had to order a new motor, so go carefully if it won't slide on.",
     # Gen 2 3.16 Right motor screws: parts preparation
     1113217: "INDX path: the M3nS nut and M3x10 listed here are for the Bowden-guide, which INDX doesn't use (see the article section above and {s:1113247}).",
     # Gen 2 3.17 Tightening the right motor
@@ -34,7 +36,7 @@ NOTES = {
     # Gen 2 3.38 Guiding the upper belt (gantry - right)
     1113491: "This is the last Gen 2 belt step. Next comes a short article section, then the INDX guide continues.",
     # INDX 5.36 Mounting the front puck holder top - left
-    1106663: 'Your PDF export of the INDX guide (generated 30 Sep 2026) is more specific here than the web version shown below. Instead of "Double-check that the nuts are inserted as shown in the photo", it says: <i>"Double-check that the nut is inserted in the same hole closer to the bottom edge, with the arrow pointing LEFT next to it."</i> Several commenters say the photos for this step and {s:1106795} are swapped or misleading, so use the arrow on the tool as your reference and look through the holes to check the alignment.',
+    1106663: 'Don\'t rely on the "bottom edge" wording in your PDF export of the INDX guide (generated 30 Sep 2026). For this step it says <i>"Double-check that the nut is inserted in the same hole closer to the bottom edge, with the arrow pointing LEFT next to it."</i> The web version of {s:1106795} said the same about the bottom edge (arrow pointing DOWN) until Prusa changed it to "Double-check that the nuts are inserted as shown" in early October 2026. The photos didn\'t change. From comments: several people say the photos for this step and {s:1106795} are swapped or misleading, and that the nut belongs in the hole closer to the <b>top</b> edge ("the up arrow side"). On {s:1106795}, others got it to work by flipping the tool. Whichever way you hold it, look through the holes to check that the nuts line up with the screw holes before you push the tool up.',
     # Gen 2 4.12 Aligning the front side expansion joint
     1111005: "Combined path: the eight heatbed screws are already in place from {s:1099926} (tightened two turns only). Don't insert them again; go straight to aligning. (INDX calls these screws M3x4bT; this Gen 2 step calls them M3x4cT.)",
     # INDX 5.2 Removing the side cover - right
@@ -44,7 +46,7 @@ NOTES = {
     # INDX 4.4 Gantry aligner tool: parts preparation
     1100758: "Heads-up from the comments: several people whose printers were working well before the upgrade found their alignment got <i>worse</i> after this procedure ({s:1100758..1100946}). Others redid it later when docking failed. Read the comments on these steps before loosening anything.",
     # INDX 4.10 Securing the belts
-    1101015: "Gen 2 path: commenters found this one of the hardest steps with the new, finer-pitch belts. Many of them fully unscrewed the front belt tensioners first, attached both belt ends to the head-mounting plate, and then refitted the tensioners. Also check that plenty of teeth stick out (see comments).",
+    1101015: "Gen 2 path: commenters found this one of the hardest steps with the new, finer-pitch belts. Many of them fully unscrewed the front belt tensioners first, attached both belt ends to the head-mounting plate, and then refitted the tensioners. Also check that plenty of teeth stick out (see comments). Don't overdo it, though: one commenter on {s:1101093} had homing and calibration failures with the belt ends flush, until they moved each end about 1 mm back.",
     # INDX 4.12 Lubricating the belt tensioner screw
     1116271: "<b>Skip this step.</b> You already lubricated both M3x30 tensioner screws in the article section {a:additional-information-and-removing-the-belts}.",
     # INDX 4.50 Covering the FS - left

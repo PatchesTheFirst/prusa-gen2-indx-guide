@@ -697,3 +697,30 @@
 102459	# INDX 6.21 · n8petersen: If you still have the small pieces of filament from attaching the bowd
 101437	# INDX 6.21 · MrTheHans: You don't need to mount a spool or anything. Just a couple inches of f
 102696	# INDX 6.22 · Stephen: If you are like me and had to do all the calibration from the menu ins
+102921	# INDX 2.11 · hamgolfer: Yes, put the screws back in the hinges as they are M3x5rT that are alm
+103041	# INDX 2.26 · 4nozzle: Spacers stayed on the rail, not on the removed Nextruder.
+103167	# INDX 3.8 · 4nozzle: Keep a finger under the bed mount to keep the M3nN nut from falling ou
+103224	# INDX 3.16 · 4nozzle: Check the fit before and after you plug the cable. Much easier to test
+103225	# INDX 3.17 · 4nozzle: Look ahead to step 18 & 19 and the cable routing and zip tie make more
+102979	# Gen 2 4.6 · brentener: I have a problem with one of the new expansion joint screws. I can't g
+103181	# Gen 2 4.6 · jiblett1000: There are some holes right next to others on the corners. Make sure yo
+103174	# Gen 2 3.17 · jiblett1000: So this screw spinning is ok? ridiculous design. Not sure I can even c
+103192	# Gen 2 3.22 · e0en: Both X axis and Y axis pulleys didn't slide into the motor shaft. Alth
+103258	# Gen 2 3.30 · jliss: Well, my loctite says not to use on plastic. This is a total poor desi
+103261	# INDX 4.11 · ehrlmpe5: I had a hard time with homing, gantry, and tool dock calibration for g
+102985	# INDX 4.32 · TheKidFromCrumlin: This was a pain, in addition to the m3x12 suggestion other people made
+103153	# INDX 4.34 · John Scott: Its almost impossible to get the 3rd tie to go behind all the cables a
+102976	# INDX 5.5 · jbolm: If you're installing the larger purge bin at the same time, now is whe
+102876	# INDX 5.10 · SuperCuriousFox: I printed the modified wiper base for the extended purge bin out of PC
+103122	# Gen 2 4.19 · Mikko Nissi: Nice idea with the fork! I used one of the allen keys from inside and 
+102922	# INDX 5.22 · hamgolfer: yeah, just use a longer screw. Getting the M3x4rT to work requires per
+103169	# INDX 5.31 · Theo Hartmann: Move the heat-bed up a couple of inches by manually turning the lead s
+102975	# INDX 5.33 · OfficerMike: The screw and nut counts are off. By my count for the 8-tool, it's: - 
+103040	# INDX 5.44 · Jason K: This was a tough one. Don’t laugh, but I ended up taping the wrench fr
+102982	# INDX 5.45 · Ch4s3r: Quite hard to get the helper tool out, used some pliers to grab it.
+102866	# INDX 5.66 · DesignByNilsson: Screw all the M3x12 in place first, leave it for ten minutes to cool d
+103179	# INDX 5.89 · jbolm: If you have a buddy cam (the next step) mount it before closing the li
+102901	# INDX 5.92 · Darth Caboose: Technically this happened to me doing next step with tool 7 but postin
+102902	# INDX 5.92 · Darth Caboose: Advise from support I got was that it should be OK to use a drop of su
+102903	# INDX 5.92 · Darth Caboose: Seems to have done the trick. For reference i used KraftProtz 3D print
+103110	# INDX 5.101 · hamgolfer: Mine is all white as well. It is not clear which white to remove. I re
