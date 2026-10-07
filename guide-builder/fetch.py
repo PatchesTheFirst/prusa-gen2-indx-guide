@@ -8,7 +8,7 @@ Usage: python fetch.py                 download a new snapshot, then write the r
   (with emphasis on steps that carry compiler's notes or sit at switch points), article changes,
   and every comment that isn't in comments_seen.txt yet.
 """
-import datetime, difflib, html, json, os, re, shutil, sys, urllib.request, concurrent.futures as cf
+import datetime, difflib, html, json, os, re, shutil, sys, time, urllib.error, urllib.request, concurrent.futures as cf
 from config import BASE, GUIDES, ARTICLE, SEQUENCE, Steps, Article
 from notes import NOTES
 from common import ROOT, DATA, Resolved, read_ids, walk_comments, article_sections
@@ -18,11 +18,22 @@ NEW = os.path.join(ROOT, 'data.new')
 PREV = os.path.join(ROOT, 'data.prev')
 
 
-def get(url, binary=False):
+def get(url, binary=False, attempts=3):
+    """Retries dropped connections and server errors a few times; other HTTP errors fail at once."""
     req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=120) as r:
-        data = r.read()
-    return data if binary else data.decode('utf-8')
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                data = r.read()
+            return data if binary else data.decode('utf-8')
+        except urllib.error.HTTPError as e:
+            if e.code < 500 or attempt == attempts:
+                raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError):
+            if attempt == attempts:
+                raise
+        print(f'  retrying {url} ({attempt}/{attempts - 1})')
+        time.sleep(10 * attempt)
 
 
 def get_comments(parent):
