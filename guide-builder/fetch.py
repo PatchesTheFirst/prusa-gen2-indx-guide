@@ -1,6 +1,7 @@
 """Downloads a fresh snapshot from help.prusa3d.com and reports what changed.
 
-Usage: python fetch.py
+Usage: python fetch.py                 download a new snapshot, then write the report
+       python fetch.py --report-only   only write the report, comparing the existing data.prev/ with data/
 
 - The new snapshot goes to data/. The previous one is kept in data.prev/ (replacing any older one).
 - CHANGES.md lists what changed since the previous snapshot: steps added, removed, renamed or edited
@@ -52,47 +53,54 @@ def extract_article_body(page):
 
 
 # ---------------------------------------------------------------- download
-if os.path.exists(NEW):
-    shutil.rmtree(NEW)
-os.makedirs(os.path.join(NEW, 'guides'))
-os.makedirs(os.path.join(NEW, 'comments'))
-
-print('Fetching guide chapters…')
-slugs = [s for g in GUIDES.values() for s in g['chapters'].values()]
-for slug in slugs:
-    with open(os.path.join(NEW, 'guides', f'{slug}.json'), 'w', encoding='utf-8') as f:
-        f.write(get(f'{BASE}/edge/guide-bundle?locale=en&slug={slug}'))
-
-print('Fetching the article…')
-with open(os.path.join(NEW, 'article_body.html'), 'w', encoding='utf-8') as f:
-    f.write(extract_article_body(get(ARTICLE['url'])))
-with open(os.path.join(NEW, 'article_comments.json'), 'w', encoding='utf-8') as f:
-    json.dump(get_comments(ARTICLE['id']), f, ensure_ascii=False)
-
-print('Fetching comments…')
-with_comments = []
-for slug in slugs:
-    with open(os.path.join(NEW, 'guides', f'{slug}.json'), encoding='utf-8') as f:
-        with_comments += [s['id'] for s in json.load(f)['data']['steps'] if s['comments']]
-
-
 def save_comments(sid):
     with open(os.path.join(NEW, 'comments', f'{sid}.json'), 'w', encoding='utf-8') as f:
         json.dump(get_comments(sid), f, ensure_ascii=False)
 
 
-with cf.ThreadPoolExecutor(6) as ex:
-    list(ex.map(save_comments, with_comments))
-today = datetime.date.today()
-with open(os.path.join(NEW, 'meta.json'), 'w', encoding='utf-8') as f:
-    json.dump({'fetched': today.isoformat(), 'fetched_label': f'{today.day} {today:%b %Y}'}, f, indent=2)
+def download():
+    """Fetches everything into data.new/, then moves data/ to data.prev/ and data.new/ to data/."""
+    if os.path.exists(NEW):
+        shutil.rmtree(NEW)
+    os.makedirs(os.path.join(NEW, 'guides'))
+    os.makedirs(os.path.join(NEW, 'comments'))
 
-# swap snapshots
-if os.path.exists(PREV):
-    shutil.rmtree(PREV)
-if os.path.exists(DATA):
-    os.rename(DATA, PREV)
-os.rename(NEW, DATA)
+    print('Fetching guide chapters…')
+    slugs = [s for g in GUIDES.values() for s in g['chapters'].values()]
+    for slug in slugs:
+        with open(os.path.join(NEW, 'guides', f'{slug}.json'), 'w', encoding='utf-8') as f:
+            f.write(get(f'{BASE}/edge/guide-bundle?locale=en&slug={slug}'))
+
+    print('Fetching the article…')
+    with open(os.path.join(NEW, 'article_body.html'), 'w', encoding='utf-8') as f:
+        f.write(extract_article_body(get(ARTICLE['url'])))
+    with open(os.path.join(NEW, 'article_comments.json'), 'w', encoding='utf-8') as f:
+        json.dump(get_comments(ARTICLE['id']), f, ensure_ascii=False)
+
+    print('Fetching comments…')
+    with_comments = []
+    for slug in slugs:
+        with open(os.path.join(NEW, 'guides', f'{slug}.json'), encoding='utf-8') as f:
+            with_comments += [s['id'] for s in json.load(f)['data']['steps'] if s['comments']]
+    with cf.ThreadPoolExecutor(6) as ex:
+        list(ex.map(save_comments, with_comments))
+    today = datetime.date.today()
+    with open(os.path.join(NEW, 'meta.json'), 'w', encoding='utf-8') as f:
+        json.dump({'fetched': today.isoformat(), 'fetched_label': f'{today.day} {today:%b %Y}'}, f, indent=2)
+
+    # swap snapshots
+    if os.path.exists(PREV):
+        shutil.rmtree(PREV)
+    if os.path.exists(DATA):
+        os.rename(DATA, PREV)
+    os.rename(NEW, DATA)
+
+
+if '--report-only' in sys.argv[1:]:
+    if not os.path.exists(PREV):
+        sys.exit('--report-only needs a previous snapshot in data.prev/')
+else:
+    download()
 
 # ---------------------------------------------------------------- report
 def text_of(step):
@@ -116,8 +124,9 @@ def load_steps(data):
 
 
 lines = [f'# Changes since the previous snapshot', '']
+new_meta = json.load(open(os.path.join(DATA, 'meta.json'), encoding='utf-8'))
 old_meta = json.load(open(os.path.join(PREV, 'meta.json'), encoding='utf-8')) if os.path.exists(os.path.join(PREV, 'meta.json')) else {}
-lines.append(f'Previous snapshot: {old_meta.get("fetched", "none")} · new snapshot: {today.isoformat()}\n')
+lines.append(f'Previous snapshot: {old_meta.get("fetched", "none")} · new snapshot: {new_meta["fetched"]}\n')
 
 R = Resolved()
 if R.errors:

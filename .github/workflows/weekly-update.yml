@@ -1,0 +1,144 @@
+# Weekly check for changes to Prusa's guides, the companion article and their comments.
+#
+# Fetches a fresh snapshot, rebuilds the page and runs verify.py. If anything changed, it
+# force-pushes the result to the `auto-update` branch and opens (or updates) a pull request
+# whose description is the change report. It never touches main: a person reviews the PR
+# (comment triage, compiler's notes; see the review-auto-update skill) and merges it.
+#
+# If the PR is still open and someone has pushed review commits to it, the run stops instead of
+# overwriting them.
+
+name: Weekly guide update
+
+on:
+  schedule:
+    - cron: '17 5 * * 1'     # Mondays 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-update
+  cancel-in-progress: false
+
+env:
+  BRANCH: auto-update
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Stop if the open PR has review commits
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Only an open PR counts: after a merge (including a squash merge) or a close, the branch is overwritten.
+          open_pr=$(gh pr list --head "$BRANCH" --base main --state open --json number --jq '.[].number' | head -1)
+          if [ -n "$open_pr" ] && git fetch origin "$BRANCH" 2>/dev/null; then
+            manual=$(git log origin/main..FETCH_HEAD --format='%h %an: %s' | grep -v ' github-actions\[bot\]: ' || true)
+            if [ -n "$manual" ]; then
+              echo "::error::PR #$open_pr has review commits. Merge or close it before the next update can run."
+              echo "$manual"
+              exit 1
+            fi
+          fi
+
+      - name: Fetch a fresh snapshot
+        working-directory: guide-builder
+        run: python fetch.py
+
+      - name: Build
+        working-directory: guide-builder
+        run: python build.py --prune
+
+      - name: Verify
+        id: verify
+        working-directory: guide-builder
+        run: |
+          set +e
+          python verify.py > verify.txt 2>&1
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat verify.txt
+
+      - name: Check for changes
+        id: changes
+        run: |
+          # meta.json (the fetch date) and the date in index.html change on every run; ignore them.
+          changed=$(git status --porcelain -- guide-builder/data img | grep -v 'guide-builder/data/meta.json' || true)
+          if [ -z "$changed" ]; then
+            echo "No changes since the snapshot on main."
+            echo "any=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$changed" | head -50
+            echo "any=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Keep the change report
+        if: steps.changes.outputs.any == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: change-report
+          path: |
+            guide-builder/CHANGES.md
+            guide-builder/verify.txt
+
+      - name: Commit to the PR branch and open or update the PR
+        if: steps.changes.outputs.any == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERIFY_STATUS: ${{ steps.verify.outputs.status }}
+        run: |
+          fetched=$(python -c "import json;print(json.load(open('guide-builder/data/meta.json'))['fetched'])")
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -B "$BRANCH"
+          git add -A -- guide-builder/data img index.html
+          git commit -q -m "Weekly snapshot $fetched"
+          git push --force origin "$BRANCH"
+
+          title="Weekly update: $fetched snapshot"
+          if [ "$VERIFY_STATUS" != "0" ]; then title="$title (verify failed)"; fi
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          {
+            if [ "$VERIFY_STATUS" != "0" ]; then
+              echo '> [!WARNING]'
+              echo '> `verify.py` failed. Fix the config before merging:'
+              echo '>'
+              { grep -E '^(FAIL|WARN)' guide-builder/verify.txt || tail -5 guide-builder/verify.txt; } | sed 's/^/> /'
+              echo
+            fi
+            echo "Automatic weekly fetch. **Review before merging:** check edited steps against their compiler's notes,"
+            echo "triage the new comments, and re-run verify (the \`review-auto-update\` skill does this)."
+            echo "Merging publishes the update. Report and verify output are also attached to [the workflow run]($run_url)."
+            echo
+            echo '---'
+            echo
+            # PR descriptions are limited to 65,536 characters.
+            python - <<'EOF'
+          s = open('guide-builder/CHANGES.md', encoding='utf-8').read()
+          limit = 60000
+          print(s if len(s) <= limit else s[:limit] + '\n\n... (truncated; the full report is in the workflow run artifact)')
+          EOF
+          } > pr-body.md
+
+          pr=$(gh pr list --head "$BRANCH" --base main --state open --json number --jq '.[].number' | head -1)
+          if [ -n "$pr" ]; then
+            gh pr edit "$pr" --title "$title" --body-file pr-body.md
+          else
+            gh pr create --head "$BRANCH" --base main --title "$title" --body-file pr-body.md
+          fi
+
+      - name: Fail the run if verify failed
+        if: steps.verify.outputs.status != '0'
+        run: exit 1

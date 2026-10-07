@@ -14,11 +14,19 @@ Requirements: Python 3.10+ (standard library only). Run all commands from this f
 
 | Command | What it does |
 |---|---|
-| `python fetch.py` | Downloads a fresh snapshot into `data/`, keeps the previous one in `data.prev/`, and writes `CHANGES.md` (what changed, plus every new comment). Takes 1–2 minutes. |
+| `python fetch.py` | Downloads a fresh snapshot into `data/`, keeps the previous one in `data.prev/`, and writes `CHANGES.md` (what changed, plus every new comment). Takes 1–2 minutes. `--report-only` skips the download and only writes `CHANGES.md`, comparing the existing `data.prev/` with `data/`. |
 | `python build.py` | Builds `../index.html` and downloads any missing images into `../img/`. `--noimg` skips the downloads. `--prune` deletes images the page no longer uses. |
 | `python verify.py` | Runs deterministic checks on the config, the data and the built page. Exits with code 1 if any check fails. |
 
 Run `build.py` before `verify.py`, because one of the checks is that the page matches the configured sequence.
+
+## Weekly automatic check
+
+`.github/workflows/weekly-update.yml` runs every Monday, and can also be started from the Actions tab. It runs `fetch.py`, `build.py --prune` and `verify.py`. If anything changed, it pushes the result to the `auto-update` branch and opens or updates a pull request whose description is the change report. It never commits to `main` and never edits notes or comment lists, so nothing is published until someone reviews and merges the PR. The `review-auto-update` skill does that review.
+
+While that PR is open with review commits on it, the next run stops instead of overwriting them. The repository setting "Allow GitHub Actions to create and approve pull requests" (Settings → Actions → General) must be on.
+
+## Previewing
 
 To preview the page in the Claude desktop app, the repo's `.claude/launch.json` defines a `combined-guide` server on port 8765. Opening `index.html` directly in a browser also works.
 
@@ -65,4 +73,4 @@ Write step numbers this way, not by hand, so they stay correct when Prusa renumb
   - Keep: practical tips, problems with their fixes, corrections to the instructions, where to find parts, warnings, and answers to real ambiguities.
   - Drop: "+1/same/thanks" replies, jokes, complaints with nothing actionable, duplicates of a kept tip, and outdated remarks about things since fixed.
   - Prusa staff comments are always shown.
-- **The project skills** handle the routine work: `/update-guide` refreshes the guide from Prusa and `/review-guide` runs an independent review. They're in `../.claude/skills/`. The reviewer's brief is `review-prompt.md`.
+- **The project skills** handle the routine work: `/update-guide` refreshes the guide from Prusa, `/review-auto-update` finishes the weekly workflow's PR, and `/review-guide` runs an independent review. They're in `../.claude/skills/`. The reviewer's brief is `review-prompt.md`.
