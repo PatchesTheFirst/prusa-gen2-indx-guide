@@ -60,6 +60,7 @@ main{margin-left:320px;padding:24px clamp(16px,3vw,40px) 80px;max-width:1500px}
 .tb.indx{background:var(--indx-soft);color:var(--indx)} .tb.gen2{background:var(--gen2-soft);color:var(--gen2)} .tb.article{background:var(--art-soft);color:var(--art)}
 h1{font-size:28px;line-height:1.2;margin:0 0 6px}
 .lede{color:var(--muted);margin:0 0 18px;max-width:780px}
+.disclaimer{margin:-6px 0 18px;max-width:780px;padding:9px 12px;border:1px solid var(--note-line);background:var(--note-bg);border-radius:8px;font-size:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 16px;box-shadow:var(--shadow)}
 .card h2{font-size:17px;margin:0 0 10px}
 .card ul{margin:6px 0;padding-left:20px}
@@ -158,6 +159,7 @@ table.rm td:first-child{width:92px}
 <main>
   <h1>Prusa CORE One+ INDX conversion with the Gen 2 upgrade</h1>
   <p class="lede">One continuous guide that merges the <a href="{{INDX_URL}}" target="_blank" rel="noopener">INDX conversion guide</a>, the <a href="{{GEN2_URL}}" target="_blank" rel="noopener">CORE One+ Gen 2 upgrade guide</a> and the <a href="{{ARTICLE_URL}}" target="_blank" rel="noopener">companion article</a> that tells you when to switch between them. {{NSTEPS}} steps and article sections in assembly order, with the {{NCOMM}} most useful of {{TCOMM}} community comments. Compiled from help.prusa3d.com on {{FETCHED}}.</p>
+  <p class="disclaimer"><b>Unofficial.</b> This is a community-made compilation. It isn't affiliated with or endorsed by Prusa Research. The step text, article text and photos are Prusa's, copied from help.prusa3d.com. The compiler's notes and the community comments may be wrong. Prusa updates these guides often, so if a step looks different from your parts or something seems off, check the original page with the ↗ link on that step.</p>
 
   <div class="card">
     <h2>Roadmap</h2>
@@ -173,12 +175,12 @@ table.rm td:first-child{width:92px}
   <div class="card">
     <h2>Read first: what the official docs don't say clearly</h2>
     <ul>
-      <li><b>The X/Y motors stay unplugged</b> from the first article section until the last one (after the heatbed alignment). Several commenters suggest plugging them back in earlier, around {s:1102169}. That isn't in the official instructions; if you do it, just confirm them in the final article section.</li>
+      <li><b>The X/Y motors stay unplugged</b> from {a:securing-the-bed-spacer-right-additional-information} until {a:mounting-the-left-cover-covering-the-electronics} (after the heatbed alignment). Several commenters suggest plugging them back in earlier, around {s:1102169}. That isn't in the official instructions; if you do it, check the X/Y connections in that final article section.</li>
       <li><b>Three things stay loose until the Gen 2 heatbed alignment</b> ({s:1110993..1111043}): the heatbed screws (two turns only in {s:1099926}), the expansion joints' final alignment, and the offset-sensor screw (a few turns in {s:1099523}).</li>
       <li><b>Use the new 10 mm heatbed spacer</b> ({s:1110975}), not the old 8 mm one that {s:1099715} lists.</li>
       <li><b>Skip {s:1116271}</b> (tensioner lube is already done) and <b>{s:1113247}</b> (INDX doesn't use the Bowden-guide).</li>
-      <li><b>Gen 2 edition change:</b> the Gen 2 guide requires setting the printer edition to Gen 2 because of the new belt pitch. The companion article never mentions it. It's included right after {s:1109709}, with a heads-up on that step itself, because that's where you pick the printer model.</li>
-      <li>Many commenters found it easier to <b>take both side panels off early</b> and leave them off until needed. Bring <b>M3x12 screws</b> for the head cable clip ({s:1102054}), and <b>pre-thread</b> self-tapping holes in printed parts throughout chapter 5.</li>
+      <li><b>Gen 2 edition change:</b> the Gen 2 guide requires setting the printer edition to Gen 2 because of the new belt pitch. The companion article never mentions it. It's included right after {s:1109709}, with a heads-up on that step itself, because that's where you pick the printer model. On the compiler's printer, set up with firmware 6.9.2, the edition was already set to Gen 2 INDX, so it was only a check.</li>
+      <li>From comments: many people found it easier to <b>take both side panels off early</b> and leave them off until needed. Commenters also recommend having <b>M3x12 screws</b> for the head cable clip ({s:1102054}), and <b>pre-threading</b> the self-tapping holes in printed parts throughout chapter 5.</li>
     </ul>
     <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Yellow <b>Compiler's note</b> boxes are additions made while merging the guides. They are not Prusa's text, and neither are the roadmap, this card, or the phase and section labels. Step and article text is copied from the official pages; comments are from the community. Comments are filtered to tips, problems and fixes, corrections and Prusa staff answers. Faded comments are shown only as context for a useful reply.</p>
   </div>

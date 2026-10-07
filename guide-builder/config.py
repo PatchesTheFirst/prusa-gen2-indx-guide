@@ -86,7 +86,7 @@ class Article:          # one article section, by its <h3> id
 # The merge order, derived from the companion article's "until you finish step ..."
 # and "continue from step ..." instructions. Titles are in comments for readability.
 SEQUENCE = [
-    Phase('A. Introduction & disassembly'),
+    Phase('A. Introduction, disassembly & front bed spacers'),
     Row('Introduction, disassembly, front bed spacers'),
     Steps('indx', 1, 1096271, 1096924),     # How to navigate … Prepare your desk
     Steps('indx', 2, 1096990, 1098670),     # Tools … Final step

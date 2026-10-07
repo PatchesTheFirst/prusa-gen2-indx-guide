@@ -722,3 +722,5 @@
 102902	# INDX 5.92 · Darth Caboose: Advise from support I got was that it should be OK to use a drop of su
 102903	# INDX 5.92 · Darth Caboose: Seems to have done the trick. For reference i used KraftProtz 3D print
 103110	# INDX 5.101 · hamgolfer: Mine is all white as well. It is not clear which white to remove. I re
+103089	# INDX 4.11 · Nicolas Marsal: Gen 2: remove the tensioners first; GT1.5 belts, aim for 6-7 teeth
+103105	# INDX 5.24 · Sokol: 8-Tool version should have the step "Mount the side cover onto the printer" colored orange
