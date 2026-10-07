@@ -724,3 +724,7 @@
 103110	# INDX 5.101 · hamgolfer: Mine is all white as well. It is not clear which white to remove. I re
 103089	# INDX 4.11 · Nicolas Marsal: Gen 2: remove the tensioners first; GT1.5 belts, aim for 6-7 teeth
 103105	# INDX 5.24 · Sokol: 8-Tool version should have the step "Mount the side cover onto the printer" colored orange
+103313	# INDX 5.36 · John Scott: feel the vertical edge; arrow pointing towards you, pull forward to catch the edge
+103315	# INDX 5.38 · John Scott: for the rear nuts the arrow points away from you, towards the back
+103316	# INDX 5.39 · John Scott: screw the top nut 2-3 turns so it catches, then line up the tool
+103314	# INDX 6.19 · James Courtney: calibration no guarantee; fine-tune the wiper knob with test prints
