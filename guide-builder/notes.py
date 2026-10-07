@@ -43,6 +43,8 @@ NOTES = {
     1111005: "Combined path: the eight heatbed screws are already in place from {s:1099926} (tightened two turns only). Don't insert them again; go straight to aligning. (INDX calls these screws M3x4bT; this Gen 2 step calls them M3x4cT.)",
     # INDX 5.2 Removing the side cover - right
     1104211: "Combined path: <b>do remove the Bowden-guide</b> as this step says. It's still screwed to the right rear motor mount, because this path never detached it ({s:1113247} only skipped putting it back). The right metal side panel already came off in the article section {a:additional-information-and-removing-the-belts}, so skip the rivet and side-cover lines and keep the panel aside for later.",
+    # INDX 6.11 Wizard: Belt tensioning
+    1109875: "<b>Don't overtighten.</b> On the compiler's own build, the left belt-tensioner printed part broke at this step from overtightening the belts. Take Prusa's warning below seriously: read the linked belt-tension article first and adjust in small steps.",
     # INDX 6.7 Setting up the printer: Intro
     1109709: "<b>Gen 2 heads-up before you pick a model:</b> the next step (from the Gen 2 guide, not the companion article) says the printer edition must be set to Gen 2 because the new belts and pulleys have a different tooth pitch. On the compiler's printer, set up with firmware 6.9.2, the edition was already set to Gen 2 INDX. One commenter on this step was offered COREONEGEN2 here instead of COREONEINDX and couldn't go back afterwards. Check which models are offered before you confirm. If none of them fits an INDX + Gen 2 printer, ask Prusa support before continuing.",
     # INDX 4.4 Gantry aligner tool: parts preparation
