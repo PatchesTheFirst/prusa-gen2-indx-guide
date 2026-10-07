@@ -162,5 +162,4 @@ ARTICLE_COMMENTS = {
     99447: 'additional-information-and-removing-the-belts',          # Bpendragon: drill for extended bucket
     99902: 'fixing-the-heatbed',                                      # PetrichorPete: sensor blocks front-right joint
     101211: 'mounting-the-left-cover-covering-the-electronics',       # Luis: rivet tip
-    103312: 'mounting-the-left-cover-covering-the-electronics',       # Nicer than Triton: photo may show Z cable in wrong connector
 }
