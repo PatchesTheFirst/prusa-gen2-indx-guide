@@ -26,7 +26,7 @@ NOTES = {
     # INDX 3.25 Securing the heatbed
     1099926: "Gen 2 path: only two turns, as the step says. The heatbed screws get their final tightening with the aligner in {s:1110993..1111043}, later in this document.",
     # Gen 2 3.9 Installing the new pulley (right motor)
-    1113142: "From comments: many people found the new pulleys very hard to push onto the motor shaft, here and on the left motor ({s:1113272}). Before you force one, loosen or remove both set screws, and file off any burr the old set screw left on the shaft. Some still needed pliers or a clamp. At least one commenter got a pulley stuck halfway and had to order a new motor, so go carefully if it won't slide on.",
+    1113142: "From comments: many people found the new pulleys very hard to push onto the motor shaft, here and on the left motor ({s:1113272}).",
     # Gen 2 3.16 Right motor screws: parts preparation
     1113217: "INDX path: the M3nS nut and M3x10 listed here are for the Bowden-guide, which INDX doesn't use (see the article section above and {s:1113247}).",
     # Gen 2 3.17 Tightening the right motor

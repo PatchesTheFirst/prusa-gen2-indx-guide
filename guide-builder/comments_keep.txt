@@ -620,7 +620,6 @@
 101314	# INDX 5.82 · vhubbard: Pre thread the parts. I did it twice. Then put the bolt in, hold it wi
 100819	# INDX 5.82 · marrenmiller: This is horrendous. I managed to make it more tolerable by holding the
 100887	# INDX 5.82 · FowlerNinja: this and pre-threading the screws into the part worked a lot better
-100325	# INDX 5.82 · mtbrider: Second photo is misleading, it shows the hinge in wrong position. Also
 99917	# INDX 5.82 · PetrichorPete: Along with pre tapping, it also is easier to insert the screw fully th
 99714	# INDX 5.82 · Pyron: Tip: Pre-Tap the screw before installation. The screw takes a lot of f
 102534	# INDX 5.83 · A_Str8: This step is supposed to be for the right, but it says left everywhere
@@ -628,7 +627,6 @@
 102204	# INDX 5.83 · zalerion: Thought I had them the wrong way. Unscrewd them. Were right, but they 
 102089	# INDX 5.83 · NFWolfPryde: This was really difficult to not strip the screw. I found if I pushed 
 102180	# INDX 5.83 · NORM: That's what I did in addition to pre-tapping. Just be careful to not b
-100224	# INDX 5.83 · Kalitian: Part is marked with an R, text is incorrect
 99800	# INDX 5.83 · Mastakko: Showing a top view of the hinge-base as installed would be helpful, it
 102638	# INDX 5.84 · Nick Dollimount: DO NOT TIGHTEN THEM ALL THE WAY. At this point I was getting a little 
 102248	# INDX 5.84 · langjai: Grease the springs with Prusa grease to prevent creaking. Also a t-han
