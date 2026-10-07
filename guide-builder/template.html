@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CORE One INDX + Gen 2</title>
+<style>
+:root{
+  --bg:#f6f5f2; --card:#ffffff; --ink:#1d1d1f; --muted:#6b6b70; --line:#e3e1dc;
+  --indx:#e8561c; --indx-soft:#fdebe3; --gen2:#1f6fd1; --gen2-soft:#e4eefb;
+  --art:#7a3fc4; --art-soft:#efe6fb; --note:#9a6a00; --note-bg:#fff6dc; --note-line:#e9c45a;
+  --staff:#0f8a5f; --staff-soft:#e1f4ec; --caution:#c62828; --caution-soft:#fdecea;
+  --info:#1f6fd1; --info-soft:#e8f0fb; --ok:#2e7d32; --ok-soft:#e6f3e7;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 2px 8px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141416; --card:#1d1d20; --ink:#ececee; --muted:#9a9aa2; --line:#2e2e33;
+    --indx:#ff7a45; --indx-soft:#3a2219; --gen2:#5ea0ff; --gen2-soft:#18263a;
+    --art:#b48cf0; --art-soft:#2a2038; --note:#f0c45a; --note-bg:#2e2715; --note-line:#7a6220;
+    --staff:#45c993; --staff-soft:#16302a; --caution:#ff6b6b; --caution-soft:#3a1c1c;
+    --info:#6aa8ff; --info-soft:#18263a; --ok:#6fcf74; --ok-soft:#1b2e1c; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141416; --card:#1d1d20; --ink:#ececee; --muted:#9a9aa2; --line:#2e2e33;
+  --indx:#ff7a45; --indx-soft:#3a2219; --gen2:#5ea0ff; --gen2-soft:#18263a;
+  --art:#b48cf0; --art-soft:#2a2038; --note:#f0c45a; --note-bg:#2e2715; --note-line:#7a6220;
+  --staff:#45c993; --staff-soft:#16302a; --caution:#ff6b6b; --caution-soft:#3a1c1c;
+  --info:#6aa8ff; --info-soft:#18263a; --ok:#6fcf74; --ok-soft:#1b2e1c; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--gen2)}
+.layout{min-height:100vh}
+nav{position:fixed;top:0;left:0;bottom:0;width:320px;overflow:auto;z-index:20;border-right:1px solid var(--line);background:var(--card);padding:14px 12px 40px}
+main{margin-left:320px;padding:24px clamp(16px,3vw,40px) 80px;max-width:1500px}
+.navtop{display:flex;gap:6px;align-items:center;margin-bottom:10px}
+.navtop b{font-size:14px;flex:1}
+.btn{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:5px 10px;font:inherit;font-size:13px;cursor:pointer}
+.btn:hover{border-color:var(--muted)}
+.prog{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:6px 0 4px}
+.prog i{display:block;height:100%;background:var(--ok);width:0}
+.progt{font-size:12px;color:var(--muted);margin-bottom:10px}
+#q{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;margin-bottom:8px}
+.tocp{margin:2px 0}
+.tocp summary{cursor:pointer;padding:6px 4px;font-weight:600;font-size:13px;display:flex;gap:6px;align-items:center;list-style:none}
+.tocp summary::-webkit-details-marker{display:none}
+.tocp summary::before{content:"▸";color:var(--muted);font-size:11px}
+.tocp[open] summary::before{content:"▾"}
+.tocp summary a{color:var(--ink);text-decoration:none;flex:1}
+.pc{font-size:11px;color:var(--muted);font-weight:500}
+.tocp ol{list-style:none;margin:0 0 6px;padding:0 0 0 14px}
+.tocp li a{display:flex;gap:6px;align-items:baseline;padding:2px 4px;border-radius:5px;color:var(--ink);text-decoration:none;font-size:12.5px;line-height:1.35}
+.tocp li a:hover{background:var(--bg)}
+.tocp li a.cur{background:var(--gen2-soft)}
+.tocp li a.ok{color:var(--muted);text-decoration:line-through}
+.tb{flex:none;font-size:10px;font-weight:700;padding:0 4px;border-radius:4px;min-width:44px;text-align:center}
+.tb.indx{background:var(--indx-soft);color:var(--indx)} .tb.gen2{background:var(--gen2-soft);color:var(--gen2)} .tb.article{background:var(--art-soft);color:var(--art)}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 18px;max-width:780px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 16px;box-shadow:var(--shadow)}
+.card h2{font-size:17px;margin:0 0 10px}
+.card ul{margin:6px 0;padding-left:20px}
+table.rm{width:100%;border-collapse:collapse;font-size:14px}
+table.rm td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+table.rm td:first-child{width:92px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 7px;border-radius:5px;white-space:nowrap}
+.badge.indx{background:var(--indx);color:#fff} .badge.gen2{background:var(--gen2);color:#fff} .badge.article{background:var(--art);color:#fff} .badge.mixed{background:var(--muted);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:8px}
+.legend span{display:flex;gap:6px;align-items:center}
+.phase{font-size:21px;margin:42px 0 12px;padding-top:6px;border-top:3px solid var(--ink);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.phase small{font-size:13px;font-weight:500;color:var(--muted)}
+.segmark{font-size:12px;font-weight:600;margin:18px 0 8px;padding:4px 10px;border-radius:6px;display:inline-block}
+.segmark.indx{background:var(--indx-soft);color:var(--indx)} .segmark.gen2{background:var(--gen2-soft);color:var(--gen2)}
+.step{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--indx);border-radius:10px;margin:0 0 14px;box-shadow:var(--shadow)}
+.step.gen2{border-left-color:var(--gen2)} .step.article{border-left-color:var(--art);background:linear-gradient(var(--art-soft),var(--card) 80px)}
+.step header{display:flex;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.step h3{margin:0;font-size:16px;flex:1}
+.orig{text-decoration:none;color:var(--muted);font-size:16px;padding:0 4px}
+.orig:hover{color:var(--ink)}
+.done{position:relative;display:inline-flex;cursor:pointer}
+.done input{position:absolute;opacity:0;width:0;height:0}
+.done span{width:20px;height:20px;border:2px solid var(--muted);border-radius:5px;display:inline-block}
+.done input:checked+span{background:var(--ok);border-color:var(--ok)}
+.done input:checked+span::after{content:"";display:block;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:translate(6px,2px) rotate(45deg)}
+.done input:focus-visible+span{outline:2px solid var(--gen2);outline-offset:2px}
+.step.isdone{opacity:.62}
+.body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:14px;padding:12px 14px}
+.lines{list-style:none;margin:0;padding:0}
+.lines li{display:flex;gap:8px;margin:0 0 7px;align-items:flex-start}
+.lines li.lv1{margin-left:22px;font-size:14px}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;margin-top:5px}
+.c-yellow{background:#f2c200}.c-light_blue{background:#4fc3f7}.c-orange{background:#fb8c00}.c-blue{background:#1e63d6}.c-green{background:#2fb24c}.c-violet{background:#9c4fd6}.c-red{background:#e53935}.c-none{background:var(--muted);width:6px;height:6px;margin:8px 3px 0}
+.ico{flex:none;width:18px;height:18px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px;color:#fff}
+.lines li[class*="ic-"]{padding:6px 8px;border-radius:7px}
+.ic-note{background:var(--info-soft)} .ic-note .ico{background:var(--info)}
+.ic-caution{background:var(--caution-soft)} .ic-caution .ico{background:var(--caution)}
+.ic-reminder{background:var(--ok-soft)} .ic-reminder .ico{background:var(--ok)}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-content:start}
+.gal:empty{display:none}
+.zoom{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:var(--bg);aspect-ratio:4/3}
+.zoom img{width:100%;height:100%;object-fit:cover;display:block}
+.arttext{padding:12px 16px}
+.arttext img{max-width:min(100%,520px);height:auto;display:block}
+.arttext .zoom{aspect-ratio:auto;display:inline-block;max-width:520px;margin:6px 0}
+.arttext ul{padding-left:20px}
+.cnote{margin:10px 14px 0;padding:9px 12px;border:1px dashed var(--note-line);background:var(--note-bg);border-radius:8px;font-size:14px}
+.cnl{display:block;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--note);margin-bottom:2px}
+.comments{margin:0 14px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.comments summary{cursor:pointer;padding:7px 12px;font-size:13px;font-weight:600}
+.cof{color:var(--muted);font-weight:500}
+.cmt{padding:8px 12px;border-top:1px solid var(--line);font-size:13.5px}
+.cmt.ctx{opacity:.6}
+.cmt.staff{background:var(--staff-soft)}
+.cmeta{font-size:12px;color:var(--muted);margin-bottom:2px}
+.cmeta b{color:var(--ink)}
+.staffb{background:var(--staff);color:#fff;border-radius:4px;padding:0 5px;margin-left:6px;font-size:10.5px;font-weight:700}
+.replies{margin:6px 0 0 14px;border-left:2px solid var(--line)}
+.replies .cmt{border-top:none;padding:4px 10px}
+.call{padding:6px 12px 9px;font-size:12.5px;border-top:1px solid var(--line)}
+.nocmt{margin:0 14px 12px;font-size:12px;color:var(--muted)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;flex-direction:column;gap:10px;padding:16px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:calc(100vh - 80px);border-radius:6px}
+#lb .lbbar{display:flex;gap:10px}
+#lb a,#lb button{color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+.navtoggle{display:none}
+@media (max-width:900px){
+  nav{inset:0 25% 0 0;width:auto;z-index:40;transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.3)}
+  nav.open{transform:none}
+  .navtoggle{display:block;position:fixed;right:16px;bottom:16px;z-index:41;background:var(--ink);color:var(--bg);border:0;border-radius:24px;padding:10px 16px;font:inherit;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .body{grid-template-columns:1fr}
+  main{margin-left:0;padding:16px 16px 90px}
+}
+@media print{
+  nav,.navtoggle,#lb,.done,.orig{display:none!important}
+  main{margin-left:0} body{background:#fff}
+  .step{break-inside:avoid-page;box-shadow:none}
+  .comments{display:block} .comments>*{display:block}
+  .gal{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav id="nav">
+  <div class="navtop"><b>Contents</b><button class="btn" id="resume" title="Jump to the first step not yet ticked">Resume</button><button class="btn" id="theme" title="Toggle light/dark">◐</button></div>
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="progt" id="ptext"></div>
+  <input id="q" type="search" placeholder="Filter steps (e.g. belts, 4.19, rivet)">
+  {{TOC}}
+</nav>
+<main>
+  <h1>Prusa CORE One+ INDX conversion with the Gen 2 upgrade</h1>
+  <p class="lede">One continuous guide that merges the <a href="{{INDX_URL}}" target="_blank" rel="noopener">INDX conversion guide</a>, the <a href="{{GEN2_URL}}" target="_blank" rel="noopener">CORE One+ Gen 2 upgrade guide</a> and the <a href="{{ARTICLE_URL}}" target="_blank" rel="noopener">companion article</a> that tells you when to switch between them. {{NSTEPS}} steps and article sections in assembly order, with the {{NCOMM}} most useful of {{TCOMM}} community comments. Compiled from help.prusa3d.com on {{FETCHED}}.</p>
+
+  <div class="card">
+    <h2>Roadmap</h2>
+    <table class="rm">{{ROADMAP}}</table>
+    <div class="legend">
+      <span><span class="badge indx">INDX</span> INDX conversion guide</span>
+      <span><span class="badge gen2">GEN 2</span> Gen 2 upgrade guide</span>
+      <span><span class="badge article">ARTICLE</span> Companion article</span>
+      <span>↗ opens the original step online</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Read first: what the official docs don't say clearly</h2>
+    <ul>
+      <li><b>The X/Y motors stay unplugged</b> from the first article section until the last one (after the heatbed alignment). Several commenters suggest plugging them back in earlier, around {s:1102169}. That isn't in the official instructions; if you do it, just confirm them in the final article section.</li>
+      <li><b>Three things stay loose until the Gen 2 heatbed alignment</b> ({s:1110993..1111043}): the heatbed screws (two turns only in {s:1099926}), the expansion joints' final alignment, and the offset-sensor screw (a few turns in {s:1099523}).</li>
+      <li><b>Use the new 10 mm heatbed spacer</b> ({s:1110975}), not the old 8 mm one that {s:1099715} lists.</li>
+      <li><b>Skip {s:1116271}</b> (tensioner lube is already done) and <b>{s:1113247}</b> (INDX doesn't use the Bowden-guide).</li>
+      <li><b>Gen 2 edition change:</b> the Gen 2 guide requires setting the printer edition to Gen 2 because of the new belt pitch. The companion article never mentions it. It's included right after {s:1109709}, with a heads-up on that step itself, because that's where you pick the printer model.</li>
+      <li>Many commenters found it easier to <b>take both side panels off early</b> and leave them off until needed. Bring <b>M3x12 screws</b> for the head cable clip ({s:1102054}), and <b>pre-thread</b> self-tapping holes in printed parts throughout chapter 5.</li>
+    </ul>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Yellow <b>Compiler's note</b> boxes are additions made while merging the guides. They are not Prusa's text, and neither are the roadmap, this card, or the phase and section labels. Step and article text is copied from the official pages; comments are from the community. Comments are filtered to tips, problems and fixes, corrections and Prusa staff answers. Faded comments are shown only as context for a useful reply.</p>
+  </div>
+
+  <section class="step article" id="art-0"><header><span class="badge article">ARTICLE</span><h3>About this combination (article introduction)</h3><a class="orig" href="{{ARTICLE_URL}}" target="_blank" rel="noopener">↗</a></header><div class="arttext">{{ART_INTRO}}</div></section>
+
+  {{BODY}}
+
+  <div class="card" style="margin-top:40px"><h2>Done</h2><p style="margin:0">That's the whole conversion. If something didn't match, the ↗ link on each step opens the live original, where you can see the latest text and post a comment.</p></div>
+</main>
+</div>
+<button class="navtoggle" id="navt">Contents</button>
+<div id="lb" role="dialog" aria-modal="true"><img alt=""><div class="lbbar"><a id="lbfull" target="_blank" rel="noopener">High-res online ↗</a><button id="lbx">Close (Esc)</button></div></div>
+<script>
+(function(){
+  var KEY='indx-gen2-combined-done';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+  var boxes=[].slice.call(document.querySelectorAll('.done input'));
+  var tocLinks={};
+  [].forEach.call(document.querySelectorAll('.tocp li a'),function(a){tocLinks[a.dataset.t]=a});
+  function refresh(){
+    var n=0;
+    boxes.forEach(function(b){
+      var on=!!store[b.dataset.id]; b.checked=on; if(on)n++;
+      var sec=b.closest('.step'); sec.classList.toggle('isdone',on);
+      var l=tocLinks[sec.id]; if(l)l.classList.toggle('ok',on);
+    });
+    document.getElementById('pbar').style.width=(100*n/boxes.length)+'%';
+    document.getElementById('ptext').textContent=n+' of '+boxes.length+' done';
+    [].forEach.call(document.querySelectorAll('.tocp'),function(d){
+      var ls=d.querySelectorAll('li a'),k=0; [].forEach.call(ls,function(a){if(a.classList.contains('ok'))k++});
+      d.querySelector('.pc').textContent=k+'/'+ls.length;
+    });
+  }
+  boxes.forEach(function(b){b.addEventListener('change',function(){if(b.checked)store[b.dataset.id]=1;else delete store[b.dataset.id];save();refresh()})});
+  refresh();
+  document.getElementById('resume').onclick=function(){
+    for(var i=0;i<boxes.length;i++){if(!boxes[i].checked){var s=boxes[i].closest('.step');s.scrollIntoView();openToc(s.id);closeNav();return}}
+  };
+  // theme
+  var root=document.documentElement;
+  try{var t=localStorage.getItem('indx-theme');if(t)root.dataset.theme=t}catch(e){}
+  document.getElementById('theme').onclick=function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('indx-theme',root.dataset.theme)}catch(e){}
+  };
+  // current step highlight in TOC
+  function openToc(id){var l=tocLinks[id];if(!l)return;var d=l.closest('details');if(d&&!d.open)d.open=true;
+    [].forEach.call(document.querySelectorAll('.tocp li a.cur'),function(x){x.classList.remove('cur')});l.classList.add('cur');
+    var nav=document.getElementById('nav');var r=l.getBoundingClientRect(),nr=nav.getBoundingClientRect();
+    if(r.top<nr.top||r.bottom>nr.bottom)nav.scrollTop+=r.top-nr.top-nr.height/2;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)openToc(e.target.id)})},{rootMargin:'0px 0px -75% 0px'});
+  [].forEach.call(document.querySelectorAll('.step'),function(s){io.observe(s)});
+  // filter
+  document.getElementById('q').addEventListener('input',function(){
+    var q=this.value.trim().toLowerCase();
+    [].forEach.call(document.querySelectorAll('.tocp'),function(d){
+      var any=false;
+      [].forEach.call(d.querySelectorAll('li'),function(li){var m=!q||li.textContent.toLowerCase().indexOf(q)>=0;li.style.display=m?'':'none';if(m)any=true});
+      d.style.display=any?'':'none'; if(q&&any)d.open=true;
+    });
+  });
+  // mobile nav
+  var nav=document.getElementById('nav');
+  function closeNav(){nav.classList.remove('open')}
+  document.getElementById('navt').onclick=function(){nav.classList.toggle('open')};
+  nav.addEventListener('click',function(e){if(e.target.closest('li a'))closeNav()});
+  // lightbox
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbf=document.getElementById('lbfull');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a.zoom'); if(!a)return; e.preventDefault();
+    lbi.src=a.querySelector('img').getAttribute('src'); lbf.href=a.href; lb.classList.add('on');
+  });
+  function closeLb(){lb.classList.remove('on');lbi.removeAttribute('src')}
+  document.getElementById('lbx').onclick=closeLb;
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+  // print: expand comments
+  addEventListener('beforeprint',function(){[].forEach.call(document.querySelectorAll('details.comments'),function(d){d.dataset.w=d.open?1:'';d.open=true})});
+  addEventListener('afterprint',function(){[].forEach.call(document.querySelectorAll('details.comments'),function(d){d.open=!!d.dataset.w})});
+})();
+</script>
+</body>
+</html>
