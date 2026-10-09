@@ -44,6 +44,9 @@ main{margin-left:320px;padding:24px clamp(16px,3vw,40px) 80px;max-width:1500px}
 .prog i{display:block;height:100%;background:var(--ok);width:0}
 .progt{font-size:12px;color:var(--muted);margin-bottom:10px}
 #q{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;margin-bottom:8px}
+.tocx{list-style:none;margin:0 0 6px;padding:0 0 6px;border-bottom:1px solid var(--line)}
+.tocx a{display:block;padding:4px 4px 4px 17px;border-radius:5px;color:var(--ink);text-decoration:none;font-weight:600;font-size:13px}
+.tocx a:hover{background:var(--bg)}
 .tocp{margin:2px 0}
 .tocp summary{cursor:pointer;padding:6px 4px;font-weight:600;font-size:13px;display:flex;gap:6px;align-items:center;list-style:none}
 .tocp summary::-webkit-details-marker{display:none}
@@ -159,6 +162,7 @@ kbd{font:inherit;font-size:11px;font-weight:600;padding:0 5px;border:1px solid v
   <div class="prog"><i id="pbar"></i></div>
   <div class="progt" id="ptext"></div>
   <input id="q" type="search" placeholder="Filter steps (e.g. belts, 4.19, rivet)">
+  <ul class="tocx"><li><a href="#readfirst">Read first</a></li><li><a href="#prep">Before you start: prints &amp; tools</a></li></ul>
   {{TOC}}
 </nav>
 <main>
@@ -178,7 +182,7 @@ kbd{font:inherit;font-size:11px;font-weight:600;padding:0 5px;border:1px solid v
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="readfirst">
     <h2>Read first: what the official docs don't say clearly</h2>
     <ul>
       <li><b>The X/Y motors stay unplugged</b> from {a:securing-the-bed-spacer-right-additional-information} until {a:mounting-the-left-cover-covering-the-electronics} (after the heatbed alignment). Several commenters suggest plugging them back in earlier, around {s:1102169}. That isn't in the official instructions; if you do it, check the X/Y connections in that final article section.</li>
@@ -197,7 +201,13 @@ kbd{font:inherit;font-size:11px;font-weight:600;padding:0 5px;border:1px solid v
     <p style="margin:10px 0 0"><b>Recommended by Prusa</b></p>
     <ul>
       <li><a href="https://www.printables.com/model/1208623-core-one-snap-rivet-remover" target="_blank" rel="noopener">Snap rivet remover</a>, recommended in {s:1096424} and again in {s:1097379}. Also used on the compiler's build.</li>
-      <li>Optional: the <b>larger purge bucket</b>. Prusa's guide: <a href="https://help.prusa3d.com/article/install-larger-bucket-on-prusa-core-one-indx_1147539" target="_blank" rel="noopener"><b>Install larger bucket on Prusa CORE One INDX</b> ↗</a>. Its printed parts are on the <a href="https://www.printables.com/model/1758233-core-one-indx-printed-parts/files" target="_blank" rel="noopener">INDX printed parts</a> page, and you need a drill with a 32 mm step bit for the side sheet metal. Afterwards, set Settings &gt; Nozzle Cleaner &gt; Nozzle Cleaner Capacity to Extended. The guide doesn't say when to do it during the conversion. In this combined guide, the right side panel is off from {a:additional-information-and-removing-the-belts} until {s:1136729}, so drill it in that window, before the nozzle cleaner is mounted into it in {s:1186427}. A commenter suggests switching to the bucket guide right before building the nozzle cleaner ({s:1104705}).</li>
+      <li>Optional: the <b>larger purge bucket</b>. Prusa's guide: <a href="https://help.prusa3d.com/article/install-larger-bucket-on-prusa-core-one-indx_1147539" target="_blank" rel="noopener"><b>Install larger bucket on Prusa CORE One INDX</b> ↗</a>
+        <ul style="margin:4px 0">
+          <li><b>You need:</b> the printed parts from the <a href="https://www.printables.com/model/1758233-core-one-indx-printed-parts/files" target="_blank" rel="noopener">INDX printed parts</a> page, and a drill with a 32 mm step bit for the side sheet metal.</li>
+          <li><b>When:</b> Prusa's guide doesn't say. In this combined guide, the right side panel is off from {a:additional-information-and-removing-the-belts} until {s:1136729}. Drill it in that window, before the nozzle cleaner is mounted into it in {s:1186427}. A commenter suggests switching to the bucket guide right before building the nozzle cleaner ({s:1104705}).</li>
+          <li><b>Afterwards:</b> set Settings &gt; Nozzle Cleaner &gt; Nozzle Cleaner Capacity to Extended.</li>
+        </ul>
+      </li>
     </ul>
     <p style="margin:10px 0 0"><b>Used on the compiler's build</b></p>
     <ul>
