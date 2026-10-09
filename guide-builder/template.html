@@ -69,6 +69,10 @@ table.rm td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
 table.rm td:first-child{width:92px}
 .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 7px;border-radius:5px;white-space:nowrap}
 .badge.indx{background:var(--indx);color:#fff} .badge.gen2{background:var(--gen2);color:#fff} .badge.article{background:var(--art);color:#fff} .badge.mixed{background:var(--muted);color:#fff}
+a.badge{text-decoration:none}
+a.badge:hover{text-decoration:underline}
+a.badge:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+kbd{font:inherit;font-size:11px;font-weight:600;padding:0 5px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;background:var(--bg);color:var(--ink)}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-top:8px}
 .legend span{display:flex;gap:6px;align-items:center}
 .phase{font-size:21px;margin:42px 0 12px;padding-top:6px;border-top:3px solid var(--ink);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
@@ -128,7 +132,8 @@ table.rm td:first-child{width:92px}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;flex-direction:column;gap:10px;padding:16px}
 #lb.on{display:flex}
 #lb img{max-width:100%;max-height:calc(100vh - 80px);border-radius:6px}
-#lb .lbbar{display:flex;gap:10px}
+#lb .lbbar{display:flex;gap:10px;align-items:center}
+#lbn{color:#fff;font-size:13px;min-width:3em;text-align:center}
 #lb a,#lb button{color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
 .navtoggle{display:none}
 @media (max-width:900px){
@@ -168,7 +173,8 @@ table.rm td:first-child{width:92px}
       <span><span class="badge indx">INDX</span> INDX conversion guide</span>
       <span><span class="badge gen2">GEN 2</span> Gen 2 upgrade guide</span>
       <span><span class="badge article">ARTICLE</span> Companion article</span>
-      <span>↗ opens the original step online</span>
+      <span>The badge or ↗ on a step opens the original online</span>
+      <span><kbd>→</kbd> goes through the guide in reading order: a step's text, its photos, then the next step · <kbd>←</kbd> goes back · <kbd>J</kbd><kbd>K</kbd> next/previous step, skipping photos</span>
     </div>
   </div>
 
@@ -185,7 +191,7 @@ table.rm td:first-child{width:92px}
     <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Yellow <b>Compiler's note</b> boxes are additions made while merging the guides. They are not Prusa's text, and neither are the roadmap, this card, or the phase and section labels. Step and article text is copied from the official pages; comments are from the community. Comments are filtered to tips, problems and fixes, corrections and Prusa staff answers. Faded comments are shown only as context for a useful reply.</p>
   </div>
 
-  <section class="step article" id="art-0"><header><span class="badge article">ARTICLE</span><h3>About this combination (article introduction)</h3><a class="orig" href="{{ARTICLE_URL}}" target="_blank" rel="noopener">↗</a></header><div class="arttext">{{ART_INTRO}}</div></section>
+  <section class="step article" id="art-0"><header><a class="badge article" href="{{ARTICLE_URL}}" target="_blank" rel="noopener" title="Open the article on help.prusa3d.com">ARTICLE</a><h3>About this combination (article introduction)</h3><a class="orig" href="{{ARTICLE_URL}}" target="_blank" rel="noopener">↗</a></header><div class="arttext">{{ART_INTRO}}</div></section>
 
   {{BODY}}
 
@@ -193,7 +199,7 @@ table.rm td:first-child{width:92px}
 </main>
 </div>
 <button class="navtoggle" id="navt">Contents</button>
-<div id="lb" role="dialog" aria-modal="true"><img alt=""><div class="lbbar"><a id="lbfull" target="_blank" rel="noopener">High-res online ↗</a><button id="lbx">Close (Esc)</button></div></div>
+<div id="lb" role="dialog" aria-modal="true"><img alt=""><div class="lbbar"><button id="lbp" title="Previous photo (←)">‹</button><span id="lbn"></span><button id="lbnx" title="Next photo (→)">›</button><a id="lbfull" target="_blank" rel="noopener">High-res online ↗</a><button id="lbx">Close (Esc)</button></div></div>
 <script>
 (function(){
   var KEY='indx-gen2-combined-done';
@@ -251,15 +257,77 @@ table.rm td:first-child{width:92px}
   document.getElementById('navt').onclick=function(){nav.classList.toggle('open')};
   nav.addEventListener('click',function(e){if(e.target.closest('li a'))closeNav()});
   // lightbox
-  var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbf=document.getElementById('lbfull');
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbf=document.getElementById('lbfull'),lbn=document.getElementById('lbn');
+  var lbp=document.getElementById('lbp'),lbnx=document.getElementById('lbnx');
+  var steps=[].slice.call(document.querySelectorAll('.step')),lbSet=[],lbAt=0,lbStep=-1,kbStep=-1;
+  function photos(i){return [].slice.call(steps[i].querySelectorAll('a.zoom'))}
+  function showLb(i){
+    lbAt=i; var a=lbSet[i],b=lbStep>=0&&steps[lbStep].querySelector('.badge');
+    lbi.src=a.querySelector('img').getAttribute('src'); lbf.href=a.href;
+    lbn.textContent=(b?b.textContent+' · ':'')+(i+1)+' / '+lbSet.length;
+    lbp.title=i>0?'Previous photo (←)':'Back to the step text (←)';
+    lbnx.title=i<lbSet.length-1?'Next photo (→)':'Next step (→)';
+    lbnx.style.visibility=i<lbSet.length-1||lbStep>=0&&lbStep<steps.length-1?'':'hidden';   // end of the guide
+  }
+  function openLb(si,pi){lbStep=kbStep=si;lbSet=photos(si);showLb(pi);lb.classList.add('on')}
   document.addEventListener('click',function(e){
     var a=e.target.closest('a.zoom'); if(!a)return; e.preventDefault();
-    lbi.src=a.querySelector('img').getAttribute('src'); lbf.href=a.href; lb.classList.add('on');
+    var si=steps.indexOf(a.closest('.step'));
+    if(si<0){lbStep=-1;lbSet=[a];showLb(0);lb.classList.add('on')}else openLb(si,photos(si).indexOf(a));
   });
   function closeLb(){lb.classList.remove('on');lbi.removeAttribute('src')}
   document.getElementById('lbx').onclick=closeLb;
   lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+  // keyboard: → walks the guide in reading order: a step's text, its photos, the next step's text, its photos…
+  // ← walks back the same way; J/K jump whole steps without opening photos
+  function toStep(i){if(i>=0&&i<steps.length){kbStep=i;steps[i].scrollIntoView()}}
+  function cur(){
+    var c=-1;
+    for(var i=0;i<steps.length;i++){if(steps[i].getBoundingClientRect().top<=24)c=i;else break}
+    // at the bottom of the page the last steps can't scroll to the top: trust the step reached by keyboard
+    if(kbStep>c&&innerHeight+scrollY>=document.documentElement.scrollHeight-2)c=kbStep;
+    return c;
+  }
+  function partway(c){return c>=0&&steps[c].getBoundingClientRect().top<-8}
+  function fwd(){
+    if(lb.classList.contains('on')){
+      if(lbAt<lbSet.length-1)showLb(lbAt+1);else if(lbStep>=0&&lbStep<steps.length-1){closeLb();toStep(lbStep+1)}
+      return;
+    }
+    var c=cur();
+    if(c>=0&&photos(c).length)openLb(c,0);else toStep(c+1);
+  }
+  function back(){
+    if(lb.classList.contains('on')){
+      if(lbAt>0)showLb(lbAt-1);else{closeLb();if(lbStep>=0)toStep(lbStep)}
+      return;
+    }
+    var c=cur();
+    if(partway(c))return toStep(c);   // back to the top of this step's text first
+    if(c<1)return;
+    toStep(c-1); var n=photos(c-1).length; if(n)openLb(c-1,n-1);
+  }
+  function stepBy(d){var c=cur(); if(d<0&&partway(c))return toStep(c); toStep(c+d)}
+  lbp.onclick=back; lbnx.onclick=fwd;
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey)return;
+    var k=e.key;
+    if(lb.classList.contains('on')){
+      if(k==='Escape')closeLb();
+      else if(k==='ArrowRight')fwd();
+      else if(k==='ArrowLeft')back();
+      else return;
+      e.preventDefault(); return;
+    }
+    var t=e.target;
+    if(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&t.type!=='checkbox')return;
+    if(k==='ArrowRight')fwd();
+    else if(k==='ArrowLeft')back();
+    else if(k==='j'||k==='J')stepBy(1);
+    else if(k==='k'||k==='K')stepBy(-1);
+    else return;
+    e.preventDefault();
+  });
   // print: expand comments
   addEventListener('beforeprint',function(){[].forEach.call(document.querySelectorAll('details.comments'),function(d){d.dataset.w=d.open?1:'';d.open=true})});
   addEventListener('afterprint',function(){[].forEach.call(document.querySelectorAll('details.comments'),function(d){d.open=!!d.dataset.w})});

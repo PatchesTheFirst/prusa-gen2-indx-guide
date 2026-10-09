@@ -181,7 +181,8 @@ def render_lines(lines):
 def step_html(guide, ch, num, slug, s):
     sid = s['id']
     url = f'{guide_url(slug)}#{sid}'
-    badge = f'<span class="badge {guide}">{GUIDES[guide]["label"].upper()} {ch}.{num}</span>'
+    label = f'{GUIDES[guide]["label"].upper()} {ch}.{num}'
+    badge = f'<a class="badge {guide}" href="{url}" target="_blank" rel="noopener" title="Open {label} on help.prusa3d.com">{label}</a>'
     imgs = ''.join(f'<a class="zoom" href="{full}" target="_blank" rel="noopener" data-local="{loc}"><img loading="lazy" src="{loc}" alt=""></a>'
                    for loc, full in gallery_imgs(s))
     note = f'<div class="cnote"><span class="cnl">Compiler\'s note</span>{refs(NOTES[sid])}</div>' if sid in NOTES else ''
@@ -234,7 +235,7 @@ for pi, (ptitle, items) in enumerate(phases):
             _, sec, t, h = it
             aid = ARTICLE_SECTIONS[sec]
             body.append(f'<section class="step article" id="{aid}"><header><label class="done"><input type="checkbox" data-id="{aid}"><span></span></label>'
-                        f'<span class="badge article">ARTICLE</span><h3>{html.escape(t)}</h3>'
+                        f'<a class="badge article" href="{ARTICLE["url"]}" target="_blank" rel="noopener" title="Open the article on help.prusa3d.com">ARTICLE</a><h3>{html.escape(t)}</h3>'
                         f'<a class="orig" href="{ARTICLE["url"]}" target="_blank" rel="noopener" title="Open original article">↗</a></header>'
                         f'<div class="arttext">{clean_article_html(h)}</div>{article_comments_block(sec)}</section>')
             entries.append((aid, t, 'article', 'Article'))
