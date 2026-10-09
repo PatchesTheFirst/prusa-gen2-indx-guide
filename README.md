@@ -16,6 +16,7 @@ This page merges them into one guide in assembly order.
 
 - **Every step, in order:** all INDX steps, the Gen 2 steps the companion article sends you to, and the article's own sections. Prusa's text and photos are copied as-is, and every step links to its original page.
 - **Filtered community comments:** under each step, the useful comments (tips, problems with fixes, corrections). Prusa staff replies are always shown.
+- **Before you start:** helpful prints and tools to get ready before the printer comes apart, marked by source: Prusa, the compiler's own build, comments, or found on Printables.
 - **Compiler's notes:** yellow boxes where the official docs are unclear for the combined path, for example which steps to skip and what stays loose until later. They aren't Prusa's text, and anything that comes only from comments says so.
 - **Built for working at the printer:** progress checkboxes (saved in your browser), a step filter, dark mode and print styles. It also works on phones.
 

@@ -191,6 +191,35 @@ kbd{font:inherit;font-size:11px;font-weight:600;padding:0 5px;border:1px solid v
     <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Yellow <b>Compiler's note</b> boxes are additions made while merging the guides. They are not Prusa's text, and neither are the roadmap, this card, or the phase and section labels. Step and article text is copied from the official pages; comments are from the community. Comments are filtered to tips, problems and fixes, corrections and Prusa staff answers. Faded comments are shown only as context for a useful reply.</p>
   </div>
 
+  <div class="card" id="prep">
+    <h2>Before you start: helpful prints and tools</h2>
+    <p style="margin:0 0 8px">Print these first: once the printer is taken apart, it can't print anything until the conversion is finished.</p>
+    <p style="margin:10px 0 0"><b>Recommended by Prusa</b></p>
+    <ul>
+      <li><a href="https://www.printables.com/model/1208623-core-one-snap-rivet-remover" target="_blank" rel="noopener">Snap rivet remover</a>, recommended in <a href="#s-1096424">INDX 1.4</a> and again in <a href="#s-1097379">INDX 2.8</a>. Also used on the compiler's build.</li>
+      <li>Optional: the <b>larger purge bucket</b>. Prusa's guide: <a href="https://help.prusa3d.com/article/install-larger-bucket-on-prusa-core-one-indx_1147539" target="_blank" rel="noopener"><b>Install larger bucket on Prusa CORE One INDX</b> ↗</a>. Its printed parts are on the <a href="https://www.printables.com/model/1758233-core-one-indx-printed-parts/files" target="_blank" rel="noopener">INDX printed parts</a> page, and you need a drill with a 32 mm step bit for the side sheet metal. Afterwards, set Settings &gt; Nozzle Cleaner &gt; Nozzle Cleaner Capacity to Extended. The guide doesn't say when to do it during the conversion. From comments: some people drilled the hole while the side panel was off (<a href="#s-1098644">INDX 2.35</a>, <a href="#s-1104705">INDX 5.5</a>).</li>
+    </ul>
+    <p style="margin:10px 0 0"><b>Used on the compiler's build</b></p>
+    <ul>
+      <li><a href="https://www.printables.com/model/1794124-indx-upgrade-hardware-organizer" target="_blank" rel="noopener">INDX Upgrade Hardware Organizer</a> by r0bdawg11, for the screws reused from the CORE One and the new ones from the kit.</li>
+      <li><a href="https://www.printables.com/model/1185526-textile-sleeve-tool" target="_blank" rel="noopener">Textile sleeve tool</a> by Jindřich Černý, for getting the heatbed cables into the textile sleeve in <a href="#s-1099994">INDX 3.26</a>.</li>
+      <li>An <b>electric screwdriver</b>. There are a lot of screws, and many commenters found one a big help too.</li>
+      <li>A <b>long T10 bit</b> (or a long T10 screwdriver) for the deep screws in <a href="#s-1102933">INDX 4.50</a> and <a href="#s-1104941">INDX 5.10</a>. Commenters on <a href="#s-1102933">INDX 4.50</a> ran into the same problem.</li>
+    </ul>
+    <p style="margin:10px 0 0"><b>Recommended in comments</b></p>
+    <ul>
+      <li><a href="https://www.printables.com/model/1803258-indx-top-cover-grommet-split" target="_blank" rel="noopener">Split TPU grommets for the top cover</a>, installed during <a href="#s-1108833">INDX 5.89</a>.</li>
+      <li>Tools from <a href="#s-1096424">INDX 1.4</a>: flush cutters (also handy for rivets), a T-handle hex set with ball ends, a bit set with a flexible extension for tight spots, a 5.5 mm socket or small pliers to hold M3 nuts, and an M3 tap.</li>
+    </ul>
+    <p style="margin:10px 0 0"><b>Other helpers on Printables</b> <span style="color:var(--muted);font-size:13px">(found, not tested by the compiler)</span></p>
+    <ul>
+      <li><a href="https://www.printables.com/model/1822748-coreone-gen2-indx-side-panel-nut-helper" target="_blank" rel="noopener">CoreOne GEN2 INDX side panel nut helper</a>, for placing the nuts when fitting the side panels.</li>
+      <li><a href="https://www.printables.com/model/1784391-core-one-indx-tool-holder-tapping-helper" target="_blank" rel="noopener">Core One INDX Tool Holder Tapping Helper</a>, to keep the threads square when pre-threading the tool holders (<a href="#s-1107606">INDX 5.66</a>).</li>
+      <li>Organizers for the screws you remove from the printer, by M3 ro: <a href="https://www.printables.com/model/1781806-core-one-indx-conversion-kit-screw-organizer-for-s" target="_blank" rel="noopener">INDX conversion</a> and <a href="https://www.printables.com/model/1825581-core-one-to-gen2-upgrade-screw-organizer-for-screw" target="_blank" rel="noopener">Gen 2 upgrade</a>.</li>
+    </ul>
+    <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">Know a print that helped? <a href="https://github.com/PatchesTheFirst/prusa-gen2-indx-guide/issues" target="_blank" rel="noopener">Open an issue</a> with the Printables link and the step it helps with.</p>
+  </div>
+
   <section class="step article" id="art-0"><header><a class="badge article" href="https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602" target="_blank" rel="noopener" title="Open the article on help.prusa3d.com">ARTICLE</a><h3>About this combination (article introduction)</h3><a class="orig" href="https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602" target="_blank" rel="noopener">↗</a></header><div class="arttext"><p>If you received your <strong>Prusa CORE One INDX conversion kit</strong> with the <strong>Prusa CORE One+ Gen 2 </strong>upgrade, or bought the Gen 2 upgrade separately and want to install both at the same time, this article will help you with the process. Read the instructions and information in this article thoroughly.</p>
 <p>If you received the CORE One+ GEN 2 upgrade as part of your Prusa INDX conversion kit, note that all the GEN 2 upgrade parts (belts, Pulleys, spacers, fasteners, etc.) are included in the UPGRADE box.</p>
 
