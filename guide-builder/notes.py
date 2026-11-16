@@ -50,7 +50,7 @@ NOTES = {
     # INDX 4.4 Gantry aligner tool: parts preparation
     1100758: "Heads-up from the comments: several people whose printers were working well before the upgrade found their alignment got <i>worse</i> after this procedure ({s:1100758..1100946}). Others redid it later when docking failed. Read the comments on these steps before loosening anything.",
     # INDX 4.10 Securing the belts
-    1101015: "Gen 2 path: commenters found this one of the hardest steps with the new, finer-pitch belts. Many of them fully unscrewed the front belt tensioners first, attached both belt ends to the head-mounting plate, and then refitted the tensioners. Also check that plenty of teeth stick out (see comments). Don't overdo it, though: one commenter on {s:1101093} had homing and calibration failures with the belt ends flush, until they moved each end about 1 mm back.",
+    1101015: "Gen 2 path: you have the Gen 2 belts, so use the <b>6–7 teeth</b> counts in brackets, here and in {s:1101093}. Commenters found this one of the hardest steps with the new, finer-pitch belts. Many of them fully unscrewed the front belt tensioners first, attached both belt ends to the head-mounting plate, and then refitted the tensioners. Don't push the belts in too far, though: one commenter on {s:1101093} had homing and calibration failures with the belt ends flush, until they moved each end about 1 mm back.",
     # INDX 4.12 Lubricating the belt tensioner screw
     1116271: "<b>Skip this step.</b> You already lubricated both M3x30 tensioner screws in the article section {a:additional-information-and-removing-the-belts}.",
     # INDX 4.50 Covering the FS - left

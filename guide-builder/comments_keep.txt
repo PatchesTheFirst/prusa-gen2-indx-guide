@@ -16,10 +16,6 @@
 102351	# INDX 2.8 · MilFej: Thank you for your comment. We had to mention the needle-nose pliers b
 101887	# INDX 2.10 · Danshari: The top screws were also T10 size
 100820	# INDX 2.11 · Steve Stratoti: After removing the door, I just screwed these 4 screws back into the h
-102315	# INDX 2.14 · Skirfir: If you are afraid of cutting any wires you can cut through the head of
-101890	# INDX 2.14 · Danshari: same as Steve, that was the instructed assembly for the + I retied wit
-100822	# INDX 2.14 · Steve Stratoti: My Heatbed Thermistor Cable is ziptied all the way to the bottom on th
-99961	# INDX 2.14 · Olle W: I needed to cut the lower zip tie that is marked with an X to be able 
 100823	# INDX 2.15 · Steve Stratoti: RGB LED Cable is behind a large mess of wires on the right side for me
 100498	# INDX 2.16 · Ben Dover: I had 2 zip ties in that area holding down all the cables and then I a
 101805	# INDX 2.17 · iKriz: filament sensor wont route out the lower oval opening its in the upper
@@ -266,7 +262,6 @@
 100998	# INDX 4.6 · Biscuit's 3D Workshop: Same! This was a bad idea and now I doing this whole step a second tim
 99846	# INDX 4.6 · MiniVan: why is this step necessary for converting an already assembled printer
 99682	# INDX 4.6 · Pyron: The aliigner-tools could need a little cut-out for the lower screw on 
-101072	# INDX 4.7 · SchuimSpaan88: If you have the lubrication set, this is great time to lubricate the l
 100977	# INDX 4.7 · Steve Stratoti: Based on the comments I skipped this step. It all seems to be aligned 
 100381	# INDX 4.7 · bioxz: Same as with the previous step, I was stupid and just followed the man
 100999	# INDX 4.7 · Biscuit's 3D Workshop: Did not for me. Ruined my perfect factory-assembled alignment, and now
@@ -279,8 +274,6 @@
 99684	# INDX 4.9 · Pyron: I only had M3x8b not M3x8bT. Shouldn't matter to much...
 102650	# INDX 4.10 · nilleb: Dear Prusa representatives, please consider 1. suggest temporarily und
 102450	# INDX 4.10 · n8petersen: I cannot stress how important this step is to get right. If you don't 
-102256	# INDX 4.10 · cyberjunaid: Correct me if I am wrong. I assume this is for GT2 belts so since GT2 
-102175	# INDX 4.10 · WarezMonkey: 6-7 Gen 1 belt teeth? Because the Gen 2 belts have more teeth. Is this
 102039	# INDX 4.10 · Danshari: I think my belts were too short, there was definitely not enough to ge
 100969	# INDX 4.10 · Andi_D: Inserting the belts is super hard when the tentioner idlers are alread
 100595	# INDX 4.10 · TC96728: Great move undoing the tensioners. It made inserting the belts a breez
@@ -288,7 +281,6 @@
 102202	# INDX 4.10 · JanV: Indeed. I did put one side in, then released both tensioners completel
 100437	# INDX 4.10 · SveeP: If you have the tensioner screws attached to the pulleys loosen or rem
 101114	# INDX 4.10 · Luis: Yep doing this without undoing the tensioners we had to do in a previo
-100391	# INDX 4.10 · Meow: I think 4-5 teeth for gen 2's GT1.5 belt is not enough. It keep slip a
 100171	# INDX 4.10 · Fnord Prefect: I found it helpful to secure the right side with a cable tie while wor
 99845	# INDX 4.10 · jetuser: Before you insert the belt, insert the nuts into the head mounting pla
 102042	# INDX 4.11 · Danshari: I don't buy that this can be done without the tensioners being unscrew
@@ -350,7 +342,6 @@
 100660	# INDX 4.30 · coffeeFueledDiy: I found it easy to align by inserting the end of the nylon into the ho
 102780	# INDX 4.32 · jbolm: Pre-threading the screw and then using a ball-head allen key (I have a
 102363	# INDX 4.32 · PD: With the extra fans for the HEPA filters, the screwdriver doesn’t fit 
-101721	# INDX 4.32 · Ricardo Villa: M3x12 is the way to go. Easily done from near impossible.
 102052	# INDX 4.32 · Danshari: I had success by pre-threading, but just barely past the 2nd side of t
 101371	# INDX 4.32 · tomtomav: Grabbing the cable from under, through the removed side panel, helps p
 100677	# INDX 4.32 · Ben Dover: Very difficult to reach in that spot an tighten it. Had much more succ
@@ -540,13 +531,9 @@
 100982	# INDX 5.47 · sworcester: 5.5mm nut driver for the win
 100994	# INDX 5.49 · Mukatsuku: I don't think the orientation of the images is consistent.
 100250	# INDX 5.54 · Sceal: Honestly for the bottoms i ditched the tool they supplied and used a r
-102623	# INDX 5.59 · Nick Dollimount: M3x35 screw (2x) found in the Tool Dock Fan bag These were in my Faste
-101086	# INDX 5.59 · k4rl5m1th: m3x35 was in fasteners 2/2 indx bag, no tool dock fan bag
 100776	# INDX 5.59 · Ben Dover: I hope I don't need any more M3nS square nuts. Bag says it has spares,
 101315	# INDX 5.59 · Luis: I salvaged a bunch from the old prusa parts I actually have another 6 
 100201	# INDX 5.59 · Brandon: My Fasteners 2/2 bag contained exactly 2x M3x35 screws despite being l
-99908	# INDX 5.59 · jetuser: I did not have a tool dock fan bag in my kit but I found the 2 M3x35 i
-100777	# INDX 5.59 · Ben Dover: same here, no tool dock fan bag, but the fasteners 2/2 bag had 3 total
 101215	# INDX 5.60 · Steve Stratoti: Don't screw in the dock fan until its actually screwed into the side (
 100842	# INDX 5.60 · gadget01: "Dock fan" or "print fan" please be more consistent with nomenclature.
 100464	# INDX 5.60 · Matt-G: do not overtighten the M3x25 screw, else you break the fan
@@ -573,17 +560,12 @@
 100751	# INDX 5.67 · Rysiu: I did mine up on the second lowest torque setting, then backed them of
 100806	# INDX 5.67 · Ben Dover: Yeah a video would be nice. I got mine to be rigid then backed off a b
 102829	# INDX 5.69 · shmafoo: Attach the metal parts to the Nozzle-Seal-holder first, then you have 
-102421	# INDX 5.69 · jche: They went on ok for me as long as I hold the metal end flat side and f
 102304	# INDX 5.69 · Dave Avery: i mounted the plates to the brackets ( see next step) that way I had t
 102222	# INDX 5.69 · langjai: 1. Cut-resistant glove for one hand. 2. Nitrile glove for the other ha
 102088	# INDX 5.69 · ManicPixieBoy: Put the end of the torx driver through the hole to push against, and, 
 102076	# INDX 5.69 · badabinski: This step is made MUCH easier if you have a pair of parallel jaw plier
-101976	# INDX 5.69 · iKriz: do not hold them like in the image, but flat between your fingers, hel
 101934	# INDX 5.69 · Rob: They are that sharp.. they cut trough the silicone...
-101036	# INDX 5.69 · Andi_D: I used an IPA spray. Put the end of the spray tip inside the sleeve an
 100851	# INDX 5.69 · TC96728: Omg. I thought I’d loose my mind. I tried for over 10 minutes to get t
-101158	# INDX 5.69 · Steve Stratoti: Yup, I used an old kids tylenol syringe - a little squirt inside each 
-99981	# INDX 5.69 · z073: A drop of isopropyl alcohol helps, like with the wipe blocks.
 101897	# INDX 5.70 · hyiger: Use an M3 tap to pre-thread the holes
 101353	# INDX 5.70 · Mete: Before doing this see step 71 and prethread other holes
 100725	# INDX 5.70 · Probe3254: Before attaching the nozzle-seal-holders, I'd recommend pre-threading 
@@ -627,11 +609,8 @@
 102089	# INDX 5.83 · NFWolfPryde: This was really difficult to not strip the screw. I found if I pushed 
 102180	# INDX 5.83 · NORM: That's what I did in addition to pre-tapping. Just be careful to not b
 99800	# INDX 5.83 · Mastakko: Showing a top view of the hinge-base as installed would be helpful, it
-102638	# INDX 5.84 · Nick Dollimount: DO NOT TIGHTEN THEM ALL THE WAY. At this point I was getting a little 
 102248	# INDX 5.84 · langjai: Grease the springs with Prusa grease to prevent creaking. Also a t-han
 100691	# INDX 5.84 · coffeeFueledDiy: Before placing the top cover, pre-thread the hinge parts. You can rota
-100692	# INDX 5.85 · coffeeFueledDiy: The springs in these photos look way too tight. (Almost like the lid w
-101164	# INDX 5.85 · Steve Stratoti: Agree, did it like the photo and they were too tight.
 100803	# INDX 5.86 · SveeP: My M3x4 screws are black also. I had an Mk4 and upgraded to CoreOne.
 100540	# INDX 5.86 · Ringo: Confused about those M3x4's? They're black and got mixed with the othe
 100671	# INDX 5.86 · tlchandler: The M3x4's are silver
@@ -691,7 +670,6 @@
 101047	# INDX 6.19 · HChar: As jetuser said, this needs better images both in the printer firmware
 99940	# INDX 6.19 · jetuser: I think the picture for the Z-Alignment could use improvement, to bett
 100713	# INDX 6.20 · Jim: The Y-axis calibration step is not performed this way any longer. It a
-102459	# INDX 6.21 · n8petersen: If you still have the small pieces of filament from attaching the bowd
 101437	# INDX 6.21 · MrTheHans: You don't need to mount a spool or anything. Just a couple inches of f
 102696	# INDX 6.22 · Stephen: If you are like me and had to do all the calibration from the menu ins
 102921	# INDX 2.11 · hamgolfer: Yes, put the screws back in the hinges as they are M3x5rT that are alm
@@ -707,7 +685,6 @@
 103261	# INDX 4.11 · ehrlmpe5: I had a hard time with homing, gantry, and tool dock calibration for g
 102985	# INDX 4.32 · TheKidFromCrumlin: This was a pain, in addition to the m3x12 suggestion other people made
 103153	# INDX 4.34 · John Scott: Its almost impossible to get the 3rd tie to go behind all the cables a
-102976	# INDX 5.5 · jbolm: If you're installing the larger purge bin at the same time, now is whe
 102876	# INDX 5.10 · SuperCuriousFox: I printed the modified wiper base for the extended purge bin out of PC
 103122	# Gen 2 4.19 · Mikko Nissi: Nice idea with the fork! I used one of the allen keys from inside and 
 102922	# INDX 5.22 · hamgolfer: yeah, just use a longer screw. Getting the M3x4rT to work requires per
@@ -766,3 +743,94 @@
 103607	# INDX 5.67 · Alvin.Seetoh: rest the tool holder on a box while mounting
 103606	# INDX 5.85 · John Scott: screw end to hinge edge ~11 mm; too tight compresses the spring
 103566	# INDX 6.19 · GeorgeE: phone camera with LED to see the nozzle in the V groove
+104303	# INDX 1.1 ·  mrbunky13: I highly recommend putting your Core One on a sturdy turntable for thi
+104096	# INDX 2.12 ·  tollopa: Removing the advanced filter makes it a bit easier to access the cover
+104099	# INDX 2.15 ·  tollopa: I found using the rivet removal tool to push the connect up while push
+104098	# INDX 2.15 ·  tollopa: The "filament" connector is the 3rd connector from the left and is mar
+104101	# INDX 2.16 ·  tollopa: Removing them in this order helped: 1) The two power cables in any ord
+103787	# INDX 2.16 ·  Localwost: Taking out the plastic ring at the top of the box makes removing the c
+104103	# INDX 2.17 ·  tollopa: I found it much easier to simply take the right side panel completely
+104105	# INDX 2.19 ·  tollopa: I actually found it easier to get to this screw from the right side. Y
+103833	# INDX 2.19 ·  Marcoz: The black point: There stands Screws. I think it must be Screw. I was
+104043	# INDX 2.19 ·  Paul Giblock: It should have been an M3x10. At least mine was. However, a T10 will g
+104107	# INDX 2.21 ·  tollopa: This should be rewritten where the first step just says "Do NOT remove
+104202	# INDX 2.24 ·  carsonoid: You can use one of the tiny holes from the slotted wrench to hold the
+104117	# INDX 3.4 ·  tollopa: Note that under the heatbed is a spacer used for the M3x12bT screw. Yo
+104116	# INDX 3.4 ·  tollopa: This step is confusing. The last picture is incorrect as it shows the
+104185	# INDX 3.14 ·  3gfisch: for me it was in the "Cables bag" the number fits. maybe they packed i
+104224	# INDX 3.15 ·  mrbunky13: Start the screw into the offset sensor holder first a few turns, then
+104255	# INDX 3.19 ·  mrbunky13: The offset sensor cable will stay in the groove of the LED bar by usin
+104223	# Gen 2 4.6 ·  mrbunky13: Turn the expansion joint screws upside down on a flat surface and put
+104258	# INDX 3.21 ·  mrbunky13: The E1 piece looks to have a slightly larger opening on the side, pres
+104261	# INDX 3.22 ·  mrbunky13: Best to insert all 3 nuts here. Doing it later after the heat bed is r
+103809	# INDX 3.22 ·  Gmug: Do not push the nuts in very hard. I had some layer separation while p
+104263	# INDX 3.24 ·  mrbunky13: This is also a good time to check that the magnets on the bottom of th
+104066	# INDX 3.28 ·  katespace: Make sure the cable is behind the threaded rod or the bed won't be lev
+103694	# INDX 3.30 ·  jeff: arrows are reversed
+104272	# INDX 3.32 ·  mrbunky13: Original bed stop is labeled E2. INDX bed stop is labeled E1 X, where
+104275	# INDX 3.33 ·  mrbunky13: For the top middle screw, if you use a small razor knife to create a t
+104274	# INDX 3.33 ·  mrbunky13: Verify the alignment of the nuts by threading in the screw before you
+103810	# INDX 3.34 ·  Gmug: I would put back screw in first, then the top 3. Back screw will make
+103798	# INDX 4.2 ·  Aleksandr Tuzkov: I need an assistance. One of my screws is stuck and rotates with nut (
+103825	# INDX 4.2 ·  Aleksandr Tuzkov: I had to completely destroy the pulley using cutters. And even so nut
+104168	# Gen 2 3.7 ·  mrbunky13: New pulleys are taller than the old ones, in case they get mixed toget
+103707	# Gen 2 3.7 ·  wroejestler: I might recommend using the spacer tool indicated when putting the new
+104226	# Gen 2 3.9 ·  Jason: I also had an extremely tight fit between the motor shaft and pulley.
+104192	# Gen 2 3.9 ·  hli: Had the same problem with the pulley being hard to place on the shaft.
+104144	# Gen 2 3.10 ·  tollopa: I took this opportunity to clean any residue off of the pulleys and ma
+104169	# Gen 2 3.14 ·  mrbunky13: My "Y" cable did not have even remotely enough slack to route the cabl
+103893	# Gen 2 3.19 ·  Marcoz: What a hell of a job to take off and put on the pully. By the second o
+104349	# Gen 2 3.19 ·  1_mg_1: I had the same problem but mine got stuck on halfway and ended destroy
+104146	# Gen 2 3.26 ·  tollopa: I just put a zip tie 15 cm from the end of both and then pulled it bac
+104198	# Gen 2 3.30 ·  hli: be careful not to damage the cables which are routed here - move them
+104148	# Gen 2 3.32 ·  tollopa: good time to lube that M3x30mm screw. The Prusa lube is in the Fastene
+104151	# Gen 2 3.36 ·  tollopa: my square nut had moved just slightly so good time to check to make su
+104280	# INDX 4.6 ·  axshon: It is possible to over-tighten these screws and strip the threads on t
+104387	# INDX 4.9 ·  kennyd1gital: You can use two of the M3x8b screws to hold the M3nS nuts in their res
+104221	# INDX 4.10 ·  3gfisch: yellow - "From the right side, route the lower belt through the rear c
+104305	# INDX 4.11 ·  mrbunky13: When you screw the head-mounting-plate to the linear bearing, it has t
+103965	# INDX 4.11 ·  Ian: I put a small dabs of grease in the mounting plate to hold the two M3n
+104388	# INDX 4.13 ·  kennyd1gital: Pre-INDX, 9 full turns on the tensioning screws (alternating back and
+104306	# INDX 4.13 ·  mrbunky13: Not sure what particular version is show in the pictures, but 8mm on a
+104344	# INDX 4.14 ·  mrbunky13: Run a 3x8sT screw in and out of the hole that attaches the rear cover.
+104308	# INDX 4.15 ·  mrbunky13: I must have a newer Toolhead cover. It has a cutout where you can just
+104309	# INDX 4.21 ·  mrbunky13: My original Core One print fan is identical to the print fan included
+104065	# INDX 4.23 ·  katespace: Make sure you tuck the wire behind the fan well. If the cable comes lo
+103732	# INDX 4.29 ·  jeff: update: just eye ball it close enough. the next step doesn't actually
+104339	# INDX 4.32 ·  axshon: Lots and lots of light helps. Pre-thread the screw and orient yourself
+104164	# INDX 4.32 ·  Grim Schneider: I had to remove the top rear profile to get this step to work. 1) remo
+103811	# INDX 4.41 ·  TankerTech: If you're referencing this step for sourcing your own magnets it's wor
+103699	# INDX 4.42 ·  emoses: There are 5 2x5 sleeves (2mm diameter by 5mm length). The extra is a s
+103846	# INDX 4.43 ·  dickr@mac.com: The collets are fragile. Two of the prongs broke off, no rough handlin
+104353	# INDX 4.49 ·  mrbunky13: The arrow colors do not match the hexagon colors in the middle picture
+104193	# INDX 4.53 ·  Grim Schneider: “found in the main box” -> mine were in the “INDX Base” box
+104220	# INDX 4.58 ·  tollopa: Why would you not put the cover on first and get it close to tight and
+103649	# INDX 4.60 ·  4nozzle: Inside the PTFE tube is easier. Marked longer piece white filament wit
+103758	# INDX 4.65 ·  jeff: Prior steps says: It does not matter which of the two filament sensor
+104256	# INDX 4.71 ·  hli: The image here shows a PTFE tube attached to the head cable. This does
+104356	# INDX 5.3 ·  mrbunky13: M3nN bag was shy a few pieces. You can just grab them from the idler l
+104366	# INDX 5.14 ·  mrbunky13: This step to insert the zip ties needs to be moved prior to installing
+104048	# Gen 2 4.11 ·  Joe van Dohn: Unlike older version, new joints are sitting between ptfe washers and
+104266	# Gen 2 4.12 ·  mrbunky13: Note that not all alignment tools will be orange. Mine came printed in
+103784	# Gen 2 4.12 ·  jeff: I used one of the really skinny allen wrenches from the side to stop t
+103814	# Gen 2 4.20 ·  Nico: Two of the new expansion joints ended up with a stripped thread for me
+104373	# INDX 5.25 ·  Beef7567: Spoolholder assembly tool was in the Position tools INDX bag
+104382	# INDX 5.31 ·  Tony: I didn't catch it at first. but there is a difference in distances fro
+103695	# INDX 5.45 ·  Byron: This step is by far the most horrendous. Please consider including bot
+104133	# INDX 5.46 ·  Landcross: I you, like me, can't really lean the printer on the backside because
+104022	# INDX 5.49 ·  jepa2019: Agreed - I had to flip the assembly tool the other direction and inser
+104024	# INDX 5.57 ·  jepa2019: This was probably the hardest one to get in and positioned correctly.
+104292	# INDX 5.63 ·  hli: I also have the fan with the longer cable. I secured with a zip tie to
+103682	# INDX 5.70 ·  4nozzle: The silicon tips should point in towards each other - as if you are lo
+103681	# INDX 5.77 ·  Patronics: Why is there no photo showing the orientation to insert the Grill-flex
+104369	# INDX 5.82 ·  carsonoid: FYI the universal wrench has a perfectly sized slot to hold the hinge
+103685	# INDX 5.82 ·  Patronics: You'll want to pre-thread these holes, but do not use an M3 tap if you
+103652	# INDX 5.85 ·  Zaphold: Make sure that the top cover back is inside of top cover front, I acci
+103739	# INDX 5.87 ·  Patronics: This is definitely the way to go, much better lighting than if you fol
+103687	# INDX 5.96 ·  Patronics: For anyone that put this on earlier as comments recommended, you can s
+104282	# INDX 5.98 ·  Gal.BH: If you're short these screws check the back cover of the cables and th
+104335	# INDX 6.7 ·  hli: I used 6.9.2 from https://github.com/prusa3d/Prusa-Firmware-Buddy/rele
+104208	# INDX 6.7 ·  M2: I had the same issue as Stephen. Go to Prusa CORE One/+ INDX support p
+104074	# INDX 6.9 ·  ssvenn: If your Z axis is not moving correctly during this step, power the pri
+103717	# INDX 6.11 ·  runekut: The measured skew should say in which direction there is skew. Also tr
+103721	# INDX 6.21 ·  runekut: Phase step calibration link is dead
