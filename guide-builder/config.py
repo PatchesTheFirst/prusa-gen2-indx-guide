@@ -125,7 +125,7 @@ SEQUENCE = [
     Article('mounting-the-side-panels-ptfe-and-right-cover'),
     Row('PTFE tubes, side handle, nozzle cleaner, dock fan cable'),
     Steps('indx', 4, 1103061, 1104025),     # PTFE tubes - left side: parts preparation … Done
-    Steps('indx', 5, 1104051, 1104485),     # Tools … Securing the zip ties II.
+    Steps('indx', 5, 1104051, 1288996),     # Tools … Securing the zip ties II.
 
     Phase('H. Gen 2 expansion joint alignment'),
     Row('Align the expansion joints and tighten the heatbed'),

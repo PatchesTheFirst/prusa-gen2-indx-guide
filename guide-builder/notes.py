@@ -58,7 +58,7 @@ NOTES = {
     # INDX 4.52 Covering the FS - right
     1103025: 'The "return to the Prusa INDX GEN 2 article" instruction is already handled: the article section follows next.',
     # INDX 5.17 Securing the zip ties II.
-    1104485: 'The "return to the Prusa INDX GEN 2 article" instruction is already handled: the article section and Gen 2 heatbed alignment follow next.',
+    1288996: 'The "return to the Prusa INDX GEN 2 article" instruction is already handled: the article section and Gen 2 heatbed alignment follow next.',
     # Gen 2 4.19 Aligning the front right expansion joint
     1111025: "From comments: the loosely fitted offset sensor ({s:1099523}) can get in the way here. Some commenters moved it aside, aligned the joint and put it back. Others left it in place and used the aligner upside down, the side slot, or an Allen key to hold the joint while tightening.",
     # Gen 2 4.20 Fixing the heatbed
