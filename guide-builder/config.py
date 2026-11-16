@@ -162,4 +162,6 @@ ARTICLE_COMMENTS = {
     99447: 'additional-information-and-removing-the-belts',          # Bpendragon: drill for extended bucket
     99902: 'fixing-the-heatbed',                                      # PetrichorPete: sensor blocks front-right joint
     101211: 'mounting-the-left-cover-covering-the-electronics',       # Luis: rivet tip
+    103312: 'mounting-the-left-cover-covering-the-electronics',       # Nicer than Triton: Z cable in the photo looks misplaced
+    103779: 'mounting-the-left-cover-covering-the-electronics',       # StrengthOfEndurance: Z cable one slot off, rear Z motor failed
 }
