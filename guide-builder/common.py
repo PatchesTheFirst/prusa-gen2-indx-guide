@@ -45,6 +45,32 @@ def article_sections(data=DATA):
     return parts[0], secs
 
 
+_EMPTY_ANCHOR = re.compile(r'(<a\b[^>]*?href="[^"]*/guide/([^"#/?]+)#)("[^>]*>)(.*?)</a>', re.S)
+
+
+def _title_key(t):
+    return re.sub(r'[^a-z0-9]+', ' ', html.unescape(re.sub('<[^>]+>', '', t)).lower()).strip()
+
+
+def fill_empty_anchors(h, data=DATA):
+    """Prusa sometimes drops the step id from a "skip to this step: <title>" link, leaving a
+    href that ends in a bare '#'. Restore the id when the link text is the title of exactly
+    one step in the linked chapter. Returns (html, [link texts that could not be restored])."""
+    unresolved = []
+
+    def rep(m):
+        head, slug, tail, text = m.groups()
+        p = os.path.join(data, 'guides', f'{slug}.json')
+        hits = []
+        if os.path.exists(p):
+            hits = [s['id'] for s in bundle(slug, data)['steps'] if _title_key(s['title']) == _title_key(text)]
+        if len(hits) != 1:
+            unresolved.append(f'{slug}#: "{_title_key(text)}"')
+            return m.group(0)
+        return f'{head}{hits[0]}{tail}{text}</a>'
+    return _EMPTY_ANCHOR.sub(rep, h), unresolved
+
+
 class Resolved:
     """The SEQUENCE resolved against a data snapshot."""
 

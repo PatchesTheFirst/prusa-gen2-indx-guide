@@ -8,7 +8,7 @@ import html, os, re, sys, urllib.request, concurrent.futures as cf
 from config import BASE, GUIDES, ARTICLE, ARTICLE_SECTIONS, LINK_REMAP, ARTICLE_COMMENTS, Phase, Row
 from notes import NOTES
 from common import (Resolved, OUT, ROOT, DATA, jload, bundle, article_sections, article_comments, step_comments,
-                    ranges_label, resolve_refs, read_ids, walk_comments)
+                    ranges_label, resolve_refs, read_ids, walk_comments, fill_empty_anchors)
 
 IMG = os.path.join(OUT, 'img')
 KEEP = read_ids(os.path.join(ROOT, 'comments_keep.txt')) | set(ARTICLE_COMMENTS)
@@ -28,6 +28,8 @@ def guide_url(slug):
 
 # ---------------------------------------------------------------- links
 def fix_links(h):
+    h = fill_empty_anchors(h)[0]
+
     def rep(m):
         href = html.unescape(m.group(1))
         mm = re.search(r'/guide/[^#"]*#(\d+)', href)
@@ -87,6 +89,11 @@ def clean_article_html(h):
 
 # ---------------------------------------------------------------- comments
 def c_text(t):
+    # a few comments contain real <a> tags: keep their URL (and the text, if it differs) as plain text
+    def a_tag(m):
+        url, text = html.unescape(m.group(1)), html.unescape(re.sub('<[^>]+>', '', m.group(2))).strip()
+        return url if text in ('', url) else f'{text} ({url})'
+    t = re.sub(r'<a\b[^>]*?href="([^"]*)"[^>]*>(.*?)</a>', a_tag, t, flags=re.S | re.I)
     t = html.escape(html.unescape(t).strip())
     t = re.sub(r'(https?://[^\s<]+)', r'<a href="\1">\1</a>', t)
     return fix_links(t.replace('\n', '<br>'))
@@ -298,7 +305,7 @@ for ptitle, pi, items in toc:
 with open(os.path.join(ROOT, 'template.html'), encoding='utf-8') as f:
     tpl = refs(f.read())
 page = (tpl.replace('{{TOC}}', toc_html).replace('{{BODY}}', '\n'.join(body)).replace('{{ROADMAP}}', roadmap)
-        .replace('{{ART_INTRO}}', art_intro_html).replace('{{NSTEPS}}', str(n_steps + n_art))
+        .replace('{{ART_INTRO}}', art_intro_html).replace('{{ART_INTRO_COMMENTS}}', article_comments_block('intro')).replace('{{NSTEPS}}', str(n_steps + n_art))
         .replace('{{NCOMM}}', str(kept_c)).replace('{{TCOMM}}', str(tot_c)).replace('{{ARTICLE_URL}}', ARTICLE['url'])
         .replace('{{INDX_URL}}', guide_url(GUIDES['indx']['chapters'][1]))
         .replace('{{GEN2_URL}}', guide_url(GUIDES['gen2']['chapters'][1]))

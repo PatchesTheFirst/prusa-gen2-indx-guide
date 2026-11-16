@@ -6,7 +6,7 @@ import html, os, re, sys
 from config import GUIDES, ARTICLE, ARTICLE_SECTIONS, LINK_REMAP, ARTICLE_COMMENTS
 from notes import NOTES
 from common import (Resolved, ROOT, OUT, chapter_steps, step_comments, article_comments, read_ids,
-                    walk_comments, resolve_refs)
+                    walk_comments, resolve_refs, fill_empty_anchors)
 
 results = []
 
@@ -103,6 +103,12 @@ for it in steps:
                 wrong_edition.append(f'{R.label(it[5]["id"])} -> {slug}#{target}')
 check(not wrong_edition, 'No step links into another edition of the guide (add them to LINK_REMAP)', '; '.join(wrong_edition))
 
+# links in Prusa's step text whose step id is missing (href ends in a bare '#'); build.py restores
+# the id from the link text, which must then be the title of exactly one step in that chapter
+empty_anchor = [f'{R.label(it[5]["id"])} -> {u}' for it in steps for l in it[5]['lines']
+                for u in fill_empty_anchors(l['title'])[1]]
+check(not empty_anchor, 'Step links with a missing step id can be restored from their text', '; '.join(empty_anchor))
+
 # comments
 keep = read_ids(os.path.join(ROOT, 'comments_keep.txt'))
 seen = read_ids(os.path.join(ROOT, 'comments_seen.txt'))
@@ -119,7 +125,7 @@ for c in walk_comments(acs):
         unseen.append(f'article#{c["id"]}')
 stale = sorted(keep - doc_comment_ids)
 warn(not stale, 'Every kept comment id still exists on a step in the document', f'{len(stale)} not found: {stale[:20]}')
-bad_ac = [k for k, v in ARTICLE_COMMENTS.items() if k not in {c['id'] for c in walk_comments(acs)} or v not in ARTICLE_SECTIONS]
+bad_ac = [k for k, v in ARTICLE_COMMENTS.items() if k not in {c['id'] for c in walk_comments(acs)} or (v not in ARTICLE_SECTIONS and v != 'intro')]
 warn(not bad_ac, 'ARTICLE_COMMENTS ids and sections exist', f'{bad_ac}')
 warn(not unseen, 'No unreviewed comments', f'{len(unseen)} new: {", ".join(unseen[:40])}{" …" if len(unseen) > 40 else ""}')
 missing_c = [R.label(it[5]['id']) for it in steps if it[5]['comments'] and not step_comments(it[5]['id'])]

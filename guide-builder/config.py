@@ -103,7 +103,7 @@ SEQUENCE = [
     Article('removing-old-expansion-joints'),
     Steps('gen2', 4, 1110931, 1110975),     # Removing old expansion joints … Inserting the heatbed spacer
 
-    Phase('D. Heatbed back in, cables, bed stop'),
+    Phase('D. Heatbed back in, cables, bed stop, belts released'),
     Row('Heatbed back in (screws 2 turns only), cables, bed stop; release belts'),
     Article('removing-the-bed-cable-cover-bottom'),
     Steps('indx', 3, 1099677, 1100550),     # Removing the Bed-cable-cover-bottom … Done
@@ -164,4 +164,6 @@ ARTICLE_COMMENTS = {
     101211: 'mounting-the-left-cover-covering-the-electronics',       # Luis: rivet tip
     103312: 'mounting-the-left-cover-covering-the-electronics',       # Nicer than Triton: Z cable in the photo looks misplaced
     103779: 'mounting-the-left-cover-covering-the-electronics',       # StrengthOfEndurance: Z cable one slot off, rear Z motor failed
+    101902: 'intro',                                                  # rmolnar: non-plus CORE One, upgrade to + first?
+    105521: 'intro',                                                  # Prusa Support: yes, upgrade to + first (shop or Printables)
 }
