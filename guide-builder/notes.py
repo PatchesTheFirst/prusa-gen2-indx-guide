@@ -16,7 +16,7 @@ NOTES = {
     # INDX 1.11 Optional CORE One+ Gen 2 upgrade
     1149726: "Already handled: the companion article and the needed Gen 2 steps are merged into this document in the right order.",
     # INDX 3.17 Securing the offset sensor assembly
-    1099523: "Gen 2 path: leave this M3x10 screw only a few turns in, as the step says. You tighten it in the article section {a:mounting-the-left-cover-covering-the-electronics}, after the expansion joints are aligned. From comments: the sensor can get in the way when you align the front-right expansion joint ({s:1111025}).",
+    1099523: 'Gen 2 path: leave this M3x10 screw only a few turns in, as the step says. You tighten it in the article section {a:mounting-the-left-cover-covering-the-electronics}, after the expansion joints are aligned. When you align the front-right expansion joint, {s:1111025} tells you to move the sensor out of the way and then put it back.',
     # Gen 2 4.4 Removing old expansion joints
     1110931: "The Gen 2 guide says to keep one old expansion joint for the Gen 2 nozzle wiper. The Gen 2 nozzle-wiper steps are <b>not</b> part of the INDX path, since INDX fits its own nozzle cleaner in chapter 5. Keep the old joints anyway, like every other removed part.",
     # Gen 2 4.8 Inserting the heatbed spacer
@@ -26,7 +26,7 @@ NOTES = {
     # INDX 3.25 Securing the heatbed
     1099926: "Gen 2 path: only two turns, as the step says. The heatbed screws get their final tightening with the aligner in {s:1110993..1111043}, later in this document.",
     # Gen 2 3.9 Installing the new pulley (right motor)
-    1113142: "From comments: many people found the new pulleys very hard to push onto the motor shaft, here and on the left motor ({s:1113272}).",
+    1113142: "From comments: many people found the new pulleys very hard to push onto the motor shaft, here and on the left motor ({s:1113272}). Before forcing, sanding or reaming, check that neither set screw protrudes into the bore. Several commenters found that backing a set screw off a couple of turns was all it took.",
     # Gen 2 3.16 Right motor screws: parts preparation
     1113217: "INDX path: the M3nS nut and M3x10 listed here are for the Bowden-guide, which INDX doesn't use (see the article section above and {s:1113247}). On this path you never removed them: the Bowden-guide is still screwed to the motor mount and comes off in {s:1104211}.",
     # Gen 2 3.17 Tightening the right motor
@@ -42,25 +42,31 @@ NOTES = {
     # Gen 2 4.12 Aligning the front side expansion joint
     1111005: "Combined path: the eight heatbed screws are already in place from {s:1099926} (tightened two turns only). Don't insert them again; go straight to aligning. (INDX calls these screws M3x4bT; this Gen 2 step calls them M3x4cT.)",
     # INDX 5.2 Removing the side cover - right
-    1104211: "Combined path: <b>do remove the Bowden-guide</b> as this step says. It's still screwed to the right rear motor mount, because this path never detached it ({s:1113247} only skipped putting it back). The right metal side panel already came off in the article section {a:additional-information-and-removing-the-belts}, so skip the rivet and side-cover lines and keep the panel aside for later.",
+    1104211: "Combined path: <b>do remove the Bowden-guide</b> as this step says. It's still screwed to the right rear motor mount, because this path never detached it (that's why you skipped {s:1113247}). The right metal side panel already came off in the article section {a:additional-information-and-removing-the-belts}, so skip the rivet and side-cover lines and keep the panel aside for later.",
     # INDX 6.11 Wizard: Belt tensioning
     1109875: "<b>Don't overtighten.</b> On the compiler's own build, the left belt-tensioner printed part broke at this step from overtightening the belts. Take Prusa's warning below seriously: read the linked belt-tension article first and adjust in small steps.",
     # INDX 6.7 Setting up the printer: Intro
-    1109709: "<b>Gen 2 heads-up before you pick a model:</b> the next step (from the Gen 2 guide, not the companion article) says the printer edition must be set to Gen 2 because the new belts and pulleys have a different tooth pitch. On the compiler's printer, set up with firmware 6.9.2, the edition was already set to Gen 2 INDX. One commenter on this step was offered COREONEGEN2 here instead of COREONEINDX and couldn't go back afterwards. Check which models are offered before you confirm. If none of them fits an INDX + Gen 2 printer, ask Prusa support before continuing.",
+    1109709: "<b>Gen 2 heads-up before you pick a model:</b> the next step (from the Gen 2 guide, not the companion article) says the printer edition must be set to Gen 2 because the new belts and pulleys have a different tooth pitch. On the compiler's printer, set up with firmware 6.9.2, the edition was already set to Gen 2 INDX. One commenter on this step was offered COREONEGEN2 here instead of COREONEINDX and couldn't go back afterwards. Another commenter with the same problem had only the CORE One/+ Gen 2 firmware; the fix was the CORE One/+ INDX firmware from {s:1109603}. Check which models are offered before you confirm. If none of them fits an INDX + Gen 2 printer, check which firmware you flashed, then ask Prusa support before continuing.",
     # INDX 4.4 Gantry aligner tool: parts preparation
     1100758: "Heads-up from the comments: several people whose printers were working well before the upgrade found their alignment got <i>worse</i> after this procedure ({s:1100758..1100946}). Others redid it later when docking failed. Read the comments on these steps before loosening anything.",
     # INDX 4.10 Securing the belts
     1101015: "Gen 2 path: you have the Gen 2 belts, so use the <b>6–7 teeth</b> counts in brackets, here and in {s:1101093}. Commenters found this one of the hardest steps with the new, finer-pitch belts. Many of them fully unscrewed the front belt tensioners first, attached both belt ends to the head-mounting plate, and then refitted the tensioners. Don't push the belts in too far, though: one commenter on {s:1101093} had homing and calibration failures with the belt ends flush, until they moved each end about 1 mm back.",
     # INDX 4.12 Lubricating the belt tensioner screw
     1116271: "<b>Skip this step.</b> You already lubricated both M3x30 tensioner screws in the article section {a:additional-information-and-removing-the-belts}.",
+    # INDX 4.15 Attaching the head cable cover front
+    1101234: 'From comments: whether the M3x18 screw fits here varies by kit. On many, it bottoms out before it clamps the cover, so the cover stays loose; those commenters used a spare M3x16, M3x14 or M3x12 instead. Others, including some with injection-moulded toolheads, found the M3x18 fine. Check that the cover is actually held tight, not just that the screw has stopped turning.',
     # INDX 4.50 Covering the FS - left
     1102933: '4-tool version: when this step says to skip to "PTFE tubes - left side: parts preparation", do the article section {a:mounting-the-side-panels-ptfe-and-right-cover} first. It comes right before that step in this document.',
     # INDX 4.52 Covering the FS - right
     1103025: 'The "return to the Prusa INDX GEN 2 article" instruction is already handled: the article section follows next.',
     # INDX 5.17 Securing the zip ties II.
     1288996: 'The "return to the Prusa INDX GEN 2 article" instruction is already handled: the article section and Gen 2 heatbed alignment follow next.',
+    # INDX 5.62 Attaching the dock fan
+    1288709: "<b>First remove two screws from the Belt-tensioner.</b> Prusa rewrote this step in late October 2026 and dropped its first two lines, but the M3x35 screws below still need those holes free. The previous version said: \"Remove the two highlighted M3x30 screws from the Belt-tensioner. Do not remove the third screw.\" From comments: if the belts are under tension, the Belt-tensioner can shift out of line with the holes. Push a 2 mm Allen key through the tensioner and frame holes to hold it in place while you start the first screw. Some commenters took the fan off the assembly for a moment to reach the front screw.",
+    # INDX 5.63 Securing the dock fan
+    1289038: "Since Prusa's October 2026 rewrite of {s:1288709}, this step repeats its second half. If you already seated and tightened both M3x35 screws there, there's nothing more to do here.",
     # Gen 2 4.19 Aligning the front right expansion joint
-    1111025: "From comments: the loosely fitted offset sensor ({s:1099523}) can get in the way here. Some commenters moved it aside, aligned the joint and put it back. Others left it in place and used the aligner upside down, the side slot, or an Allen key to hold the joint while tightening.",
+    1111025: "Prusa's step tells INDX converters to move the offset sensor out of the way for this joint and put it back afterwards (it's still loose from {s:1099523}). From comments: some people left the sensor in place and used the aligner upside down, the side slot, or an Allen key to hold the joint while tightening. One commenter who tried that shortcut found the alignment came out different than with the sensor moved aside, and recommends moving it.",
     # Gen 2 4.20 Fixing the heatbed
     1111043: "This is the last Gen 2 step for now. The article section that follows tightens the offset sensor, reconnects the X/Y motors and refits the left panel.",
     # Gen 2 5.6 Changing the printer edition
